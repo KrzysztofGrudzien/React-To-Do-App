@@ -1,17 +1,36 @@
 import React from "react";
 
-const Form = ({ setInputValue }) => {
+const Form = ({ setInputValue, setToDoLists, toDoLists, inputValue }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
   };
+
+  const handleOnClickSubmit = e => {
+    e.preventDefault();
+    setToDoLists([
+      ...toDoLists,
+      {
+        text: inputValue,
+        completed: false,
+        id: Math.floor(Math.random() * 1000)
+      }
+    ]);
+    setInputValue("");
+  };
+
   return (
     <form className="todo-form">
       <input
         type="text"
         className="todo-input"
         onChange={handleOnChangeInputValue}
+        value={inputValue}
       />
-      <button className="todo-button" type="submit">
+      <button
+        className="todo-button"
+        type="submit"
+        onClick={handleOnClickSubmit}
+      >
         add task
       </button>
       <div className="todo-filter-wrapper">
