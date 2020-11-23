@@ -1,9 +1,16 @@
 import React from "react";
 
-const Form = () => {
+const Form = ({ setInputValue }) => {
+  const handleOnChangeInputValue = e => {
+    setInputValue(e.target.value);
+  };
   return (
     <form className="todo-form">
-      <input type="text" className="todo-input" />
+      <input
+        type="text"
+        className="todo-input"
+        onChange={handleOnChangeInputValue}
+      />
       <button className="todo-button" type="submit">
         add task
       </button>
