@@ -4,7 +4,9 @@ const Form = () => {
   return (
     <form className="todo-form">
       <input type="text" className="todo-input" />
-      <button className="todo-button" type="submit"></button>
+      <button className="todo-button" type="submit">
+        add task
+      </button>
       <div className="todo-filter-wrapper">
         <select className="todo-select" className="todo-filter">
           <option value="all">All</option>
