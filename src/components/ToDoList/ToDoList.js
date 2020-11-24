@@ -12,6 +12,7 @@ const ToDoList = ({ toDoLists, setToDoLists }) => {
             text={toDoList.text}
             setToDoLists={setToDoLists}
             toDoLists={toDoLists}
+            toDo={toDoList}
           />
         ))}
       </ul>
