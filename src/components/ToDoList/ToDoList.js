@@ -1,14 +1,19 @@
 import React from "react";
 import ToDoItem from "../ToDoItem/ToDoItem";
 
-const ToDoList = () => {
+const ToDoList = ({ toDoLists, setToDoLists }) => {
   return (
     <div className="todo-wrapper">
       <ul className="todo-list">
-        <ToDoItem />
-        <ToDoItem />
-        <ToDoItem />
-        <ToDoItem />
+        {toDoLists.map(toDoList => (
+          <ToDoItem
+            key={toDoList.id}
+            id={toDoList.id}
+            text={toDoList.text}
+            setToDoLists={setToDoLists}
+            toDoLists={toDoLists}
+          />
+        ))}
       </ul>
     </div>
   );
