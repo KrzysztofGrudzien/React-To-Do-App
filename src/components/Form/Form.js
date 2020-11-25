@@ -1,6 +1,12 @@
 import React from "react";
 
-const Form = ({ setInputValue, setToDoLists, toDoLists, inputValue }) => {
+const Form = ({
+  setInputValue,
+  setToDoLists,
+  toDoLists,
+  inputValue,
+  setStatus
+}) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
   };
@@ -16,6 +22,10 @@ const Form = ({ setInputValue, setToDoLists, toDoLists, inputValue }) => {
       }
     ]);
     setInputValue("");
+  };
+
+  const handleOnChangeSelectStatus = e => {
+    setStatus(e.target.value);
   };
 
   return (
@@ -34,7 +44,11 @@ const Form = ({ setInputValue, setToDoLists, toDoLists, inputValue }) => {
         add task
       </button>
       <div className="todo-filter-wrapper">
-        <select className="todo-select" className="todo-filter">
+        <select
+          className="todo-select"
+          className="todo-filter"
+          onChange={handleOnChangeSelectStatus}
+        >
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
