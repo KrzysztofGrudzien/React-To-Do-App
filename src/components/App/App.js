@@ -13,6 +13,8 @@ const Header = styled.header`
   height: 70px;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
+  z-index: 100;
 `;
 
 const WelcomeBox = styled.div`
@@ -23,11 +25,14 @@ const WelcomeBox = styled.div`
 
 const AssideBox = styled.div`
   background-color: #ffffff;
+  border-right: dashed 1px #edeef2;
+  box-sizing: none;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 80px);
-  margin-top: 10px;
-  width: 375px;
+  min-height: calc(100vh - 70px);
+  position: relative;
+  width: 376px;
+  z-index: 1;
 `;
 
 const AuthorDescription = styled.p`
@@ -35,7 +40,19 @@ const AuthorDescription = styled.p`
 `;
 
 const ProjectDescription = styled.li`
-  border-left: 3px solid ${props => (props.web ? "#24c770" : props.eng ? "#e11bda" : props.vr ? "#d2d820" : props.mark ? "#ff3e6a" : props.home ? "#ec7a17" : "#4c74f8")};
+  border-left: 3px solid
+    ${props =>
+      props.web
+        ? "#24c770"
+        : props.eng
+        ? "#e11bda"
+        : props.vr
+        ? "#d2d820"
+        : props.mark
+        ? "#ff3e6a"
+        : props.home
+        ? "#ec7a17"
+        : "#4c74f8"};
   font-weight: 600;
   margin: 10px 0;
   padding: 5px;
@@ -100,7 +117,7 @@ const App = () => {
             </ul>
           </div>
         </AssideBox>
-        <div>
+        <div className="form-container">
           <Form
             inputValue={inputValue}
             setInputValue={setInputValue}
