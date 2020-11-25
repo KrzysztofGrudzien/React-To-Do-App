@@ -30,20 +30,17 @@ const Form = ({
 
   return (
     <form className="todo-form">
-      <input
-        type="text"
-        className="todo-input"
-        onChange={handleOnChangeInputValue}
-        value={inputValue}
-      />
-      <button
-        className="todo-button"
-        type="submit"
-        onClick={handleOnClickSubmit}
-      >
-        add task
-      </button>
+      <h2>
+        TASK <b>TO DO</b>
+      </h2>
       <div className="todo-filter-wrapper">
+        <input
+          type="text"
+          className="todo-input"
+          onChange={handleOnChangeInputValue}
+          value={inputValue}
+          placeholder="Enter a todo task"
+        />
         <select
           className="todo-select"
           className="todo-filter"
@@ -54,6 +51,19 @@ const Form = ({
           <option value="uncompleted">Uncompleted</option>
         </select>
       </div>
+      <textarea
+        type="text"
+        className="todo-input"
+        value=""
+        placeholder="Enter a note to this task"
+      />
+      <button
+        className="todo-button"
+        type="submit"
+        onClick={handleOnClickSubmit}
+      >
+        add task
+      </button>
     </form>
   );
 };
