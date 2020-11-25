@@ -57,6 +57,61 @@ const Form = ({
         value=""
         placeholder="Enter a note to this task"
       />
+      <div className="todo-radio">
+        <h2>PROJECTS CATEGORY</h2>
+        <div className="radio">
+          <label for="development">
+            <input
+              type="radio"
+              name="development"
+              id="development"
+              value="development"
+              checked
+            />
+            Development
+          </label>
+        </div>
+        <div className="radio">
+          <label for="webdesign">
+            <input
+              type="radio"
+              name="webdesign"
+              id="webdesign"
+              value="webdesign"
+            />
+            Webdesign
+          </label>
+        </div>
+        <div className="radio">
+          <label for="english">
+            <input type="radio" name="english" id="english" value="english" />
+            English
+          </label>
+        </div>
+        <div className="radio">
+          <label for="vr">
+            <input type="radio" name="vr" id="vr" value="vr" />
+            VR / 3D Development
+          </label>
+        </div>
+        <div className="radio">
+          <label for="marketing">
+            <input
+              type="radio"
+              name="marketing"
+              id="marketing"
+              value="marketing"
+            />
+            Marketing
+          </label>
+        </div>
+        <div className="radio">
+          <label for="home">
+            <input type="radio" name="home" id="home" value="home" />
+            Home Duties
+          </label>
+        </div>
+      </div>
       <button
         className="todo-button"
         type="submit"

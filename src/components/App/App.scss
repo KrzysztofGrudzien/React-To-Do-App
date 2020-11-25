@@ -94,9 +94,33 @@ input.todo-input {
   width: 70%;
 }
 
+input.todo-input:focus {
+  border-bottom: 1px solid $color-grey-500;
+}
+
 .todo-filter-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.todo-radio {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  .radio {
+    margin-right: 60px;
+  }
+
+  input {
+    margin-right: 15px;
+  }
+
+  h2 {
+    font-weight: 800;
+    width: 100%;
+  }
 }
 
 textarea {
@@ -109,6 +133,10 @@ textarea {
   outline: none;
   padding: 20px;
   width: 100%;
+}
+
+textarea:focus {
+  border-bottom: 1px solid $color-grey-500;
 }
 
 button {
