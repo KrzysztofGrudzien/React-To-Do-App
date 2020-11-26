@@ -15,6 +15,11 @@ const Header = styled.header`
   padding: 0 20px;
   position: relative;
   z-index: 100;
+
+  h2 {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
 `;
 
 const WelcomeBox = styled.div`
@@ -79,6 +84,9 @@ const App = () => {
         <h1>
           TO DO APP <strong>for Developer</strong>
         </h1>
+        <h2>
+          Today is <b>Friday</b> - 26 / 11 / 2020
+        </h2>
         <WelcomeBox>
           <div className="info">
             <p className="info__name">

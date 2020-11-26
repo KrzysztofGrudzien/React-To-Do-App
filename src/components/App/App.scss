@@ -94,6 +94,62 @@ input.todo-input {
   width: 70%;
 }
 
+.todo-item {
+  min-height: 100px;
+  padding: 5px;
+
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    h4 {
+      line-height: 100px;
+      font-weight: 600;
+    }
+
+    span {
+      background-image: url("../../assets/icons/foursquare-check-in.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 120px;
+      height: 100px;
+    }
+
+    p {
+      border-top: 1px solid $color-grey-100;
+      padding: 10px 0;
+    }
+
+    div {
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        .complete {
+          background: url("../../assets/icons/tick.svg"), $color-green;
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+
+        .delete {
+          background-image: url("../../assets/icons/bin.svg");
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+      }
+
+      img {
+        height: 100%;
+        float: left;
+        width: auto;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
 input.todo-input:focus {
   border-bottom: 1px solid $color-grey-500;
 }
@@ -121,6 +177,22 @@ input.todo-input:focus {
     font-weight: 800;
     width: 100%;
   }
+}
+.todo-wrapper {
+  padding: 0 20px;
+}
+
+.todo-wrapper h3 {
+  background-color: $color-secondary;
+  color: $color-background;
+  font-size: 2rem;
+  font-weight: 600;
+  height: 70px;
+  line-height: 7rem;
+  margin-top: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
 }
 
 textarea {
@@ -178,28 +250,12 @@ select::-ms-expand {
   display: none;
 }
 
-/* Focus style */
 select:focus {
   border: none;
-  /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
   box-shadow: 0 0 0 1px rgba(33, 115, 221, 0.35);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
   outline: none;
-}
-
-/* Set options to normal weight */
-select option {
-  display: inline-block;
-  margin: 10px;
-}
-
-/* Support for rtl text, explicit support for Arabic and Hebrew */
-*[dir="rtl"] select,
-:root:lang(ar) select,
-:root:lang(iw) select {
-  background-position: left 0.7em top 50%, 0 0;
-  padding: 0.6em 0.8em 0.5em 1.4em;
 }
 
 /* Disabled styles */

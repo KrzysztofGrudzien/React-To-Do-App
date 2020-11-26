@@ -1,4 +1,5 @@
 import React from "react";
+import DeerImg from "../../assets/images/deer.png";
 
 const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo }) => {
   const handleOnClickDeleteTask = () => {
@@ -21,9 +22,23 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo }) => {
 
   return (
     <li className={`todo-item ${toDo.completed ? "completed" : ""}`}>
-      {text}
-      <button onClick={handleOnClickCompleteTask}>complete</button>
-      <button onClick={handleOnClickDeleteTask}>delete</button>
+      <article>
+        <span></span>
+        <h4>{text}</h4>
+        <div>
+          <img src={DeerImg} alt="random image" />
+          <div>
+            <button onClick={handleOnClickCompleteTask} className="complete" />
+            <button onClick={handleOnClickDeleteTask} className="delete" />
+          </div>
+        </div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
+          itaque animi hic. Eius voluptate praesentium asperiores enim
+          aspernatur! Magnam distinctio minima dolores soluta nostrum dolor
+          doloremque, vitae fugit vero iste.
+        </p>
+      </article>
     </li>
   );
 };
