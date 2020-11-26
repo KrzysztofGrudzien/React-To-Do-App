@@ -1,10 +1,11 @@
 import React from "react";
 import ToDoItem from "../ToDoItem/ToDoItem";
+import "./ToDoList.scss";
 
 const ToDoList = ({ toDoLists, setToDoLists }) => {
   return (
-    <div className="todo-wrapper">
-      <h3>Development</h3>
+    <div className="todo-list-wrapper">
+      <h3 className="todo-list-title">Development</h3>
       <ul className="todo-list">
         {toDoLists.map(toDoList => (
           <ToDoItem
