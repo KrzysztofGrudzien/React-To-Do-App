@@ -1,4 +1,5 @@
 import React from "react";
+import "./ToDoItem.scss";
 import DeerImg from "../../assets/images/deer.png";
 
 const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo }) => {
@@ -21,22 +22,42 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo }) => {
   };
 
   return (
-    <li className={`todo-item ${toDo.completed ? "completed" : ""}`}>
-      <article>
-        <span></span>
-        <h4>{text}</h4>
-        <div>
-          <img src={DeerImg} alt="random image" />
-          <div>
-            <button onClick={handleOnClickCompleteTask} className="complete" />
-            <button onClick={handleOnClickDeleteTask} className="delete" />
+    <li className="todo-item">
+      <article className="todo-item-article">
+        <span
+          className={`todo-item-done ${toDo.completed ? "completed" : ""}`}
+        ></span>
+        <h4 className="todo-item-title">{text}</h4>
+        <span className="todo-item-date">26/11/2020 at 8:00 p.m</span>
+        <div className="todo-item-action-wrapper">
+          <img
+            src={DeerImg}
+            alt="random image"
+            className={`todo-item-image ${toDo.completed ? "opacity" : ""}`}
+          />
+          <div className="todo-item-actions">
+            <button
+              onClick={handleOnClickCompleteTask}
+              className="btn btn-complete"
+            />
+            <button onClick={handleOnClickDeleteTask} className="btn" />
           </div>
         </div>
-        <p>
+        <p className="todo-item-note">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
           itaque animi hic. Eius voluptate praesentium asperiores enim
           aspernatur! Magnam distinctio minima dolores soluta nostrum dolor
-          doloremque, vitae fugit vero iste.
+          doloremque, vitae fugit vero iste. Lorem ipsum dolor, sit amet
+          consectetur adipisicing elit. Dolores itaque animi hic. Eius voluptate
+          praesentium asperiores enim aspernatur! Magnam distinctio minima
+          dolores soluta nostrum dolor doloremque, vitae fugit vero iste. Lorem
+          ipsum dolor, sit amet consectetur adipisicing elit. Dolores itaque
+          animi hic. Eius voluptate praesentium asperiores enim aspernatur!
+          Magnam distinctio minima dolores soluta nostrum dolor doloremque,
+          vitae fugit vero iste. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Dolores itaque animi hic. Eius voluptate praesentium
+          asperiores enim aspernatur! Magnam distinctio minima dolores soluta
+          nostrum dolor doloremque, vitae fugit vero iste.
         </p>
       </article>
     </li>

@@ -1,0 +1,78 @@
+@import "../App//Variables.scss";
+
+.todo-item {
+  border-bottom: 1px solid $color-grey-100;
+  min-height: 100px;
+  padding: 5px;
+
+  &-article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .todo-item-title {
+      position: relative;
+      line-height: 100px;
+      font-weight: 600;
+    }
+
+    .todo-item-done {
+      background-image: url("../../assets/icons/foursquare-check.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 120px;
+      height: 100px;
+    }
+
+    .completed {
+      background-image: url("../../assets/icons/foursquare-check-in.svg");
+    }
+
+    .todo-item-date {
+      background-image: url("../../assets/icons/calendar.svg");
+      background-position: left center;
+      background-repeat: no-repeat;
+      font-size: 1.2rem;
+      line-height: 10rem;
+      padding-left: 20px;
+      padding-top: 3px;
+      width: auto;
+    }
+
+    .todo-item-note {
+      padding: 20px 0;
+    }
+
+    .todo-item-action-wrapper {
+      .todo-item-image {
+        height: 100%;
+        float: left;
+        width: auto;
+        margin-right: 5px;
+      }
+
+      .opacity {
+        opacity: 0.5;
+      }
+
+      .todo-item-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .btn {
+          background-image: url("../../assets/icons/bin.svg");
+          background-position: center center;
+          background-repeat: no-repeat;
+
+          &-complete {
+            background: url("../../assets/icons/tick.svg"), $color-green;
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
