@@ -1,4 +1,5 @@
 import React from "react";
+import "./Form.scss";
 
 const Form = ({
   setInputValue,
@@ -30,10 +31,10 @@ const Form = ({
 
   return (
     <form className="todo-form">
-      <h2>
+      <h2 className="todo-form-title">
         TASK <b>TO DO</b>
       </h2>
-      <div className="todo-filter-wrapper">
+      <div className="todo-form-wrapper">
         <input
           type="text"
           className="todo-input"
@@ -41,11 +42,7 @@ const Form = ({
           value={inputValue}
           placeholder="Enter a todo task"
         />
-        <select
-          className="todo-select"
-          className="todo-filter"
-          onChange={handleOnChangeSelectStatus}
-        >
+        <select className="todo-select" onChange={handleOnChangeSelectStatus}>
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
@@ -53,15 +50,16 @@ const Form = ({
       </div>
       <textarea
         type="text"
-        className="todo-input"
+        className="todo-textarea"
         value=""
         placeholder="Enter a note to this task"
       />
-      <div className="todo-radio">
-        <h2>PROJECTS CATEGORY</h2>
-        <div className="radio">
+      <div className="todo-categories">
+        <h2 className="todo-categories-title">PROJECTS CATEGORY</h2>
+        <div className="todo-category">
           <label for="development">
             <input
+              className="todo-radio"
               type="radio"
               name="development"
               id="development"
@@ -71,9 +69,10 @@ const Form = ({
             Development
           </label>
         </div>
-        <div className="radio">
+        <div className="todo-category">
           <label for="webdesign">
             <input
+              className="todo-radio"
               type="radio"
               name="webdesign"
               id="webdesign"
@@ -82,21 +81,34 @@ const Form = ({
             Webdesign
           </label>
         </div>
-        <div className="radio">
+        <div className="todo-category">
           <label for="english">
-            <input type="radio" name="english" id="english" value="english" />
+            <input
+              className="todo-radio"
+              type="radio"
+              name="english"
+              id="english"
+              value="english"
+            />
             English
           </label>
         </div>
-        <div className="radio">
+        <div className="todo-category">
           <label for="vr">
-            <input type="radio" name="vr" id="vr" value="vr" />
+            <input
+              className="todo-radio"
+              type="radio"
+              name="vr"
+              id="vr"
+              value="vr"
+            />
             VR / 3D Development
           </label>
         </div>
-        <div className="radio">
+        <div className="todo-category">
           <label for="marketing">
             <input
+              className="todo-radio"
               type="radio"
               name="marketing"
               id="marketing"
@@ -105,9 +117,15 @@ const Form = ({
             Marketing
           </label>
         </div>
-        <div className="radio">
+        <div className="todo-category">
           <label for="home">
-            <input type="radio" name="home" id="home" value="home" />
+            <input
+              className="todo-radio"
+              type="radio"
+              name="home"
+              id="home"
+              value="home"
+            />
             Home Duties
           </label>
         </div>
