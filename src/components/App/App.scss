@@ -25,6 +25,15 @@ body {
   min-height: 100vh;
 }
 
+.App {
+  display: grid;
+  grid-template-columns: 376px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "header header header header"
+    "aside content content content";
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -41,6 +50,7 @@ img {
 
 main {
   display: flex;
+  grid-area: content;
 }
 
 button {

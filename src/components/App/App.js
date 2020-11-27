@@ -10,8 +10,8 @@ const Header = styled.header`
   align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  height: 70px;
   justify-content: space-between;
+  grid-area: header;
   padding: 0 20px;
   position: relative;
   z-index: 100;
@@ -48,9 +48,9 @@ const AssideBox = styled.div`
   box-sizing: none;
   display: flex;
   flex-direction: column;
+  grid-area: aside;
   min-height: calc(100vh - 70px);
   position: relative;
-  width: 376px;
   z-index: 1;
 
   .project-titles {
@@ -115,33 +115,33 @@ const App = () => {
           <img src={ImgAvatar} alt="picture of author" className="app-avatar" />
         </WelcomeBox>
       </Header>
+      <AssideBox>
+        <img src={ImgTasks} alt="picture of author" />
+        <AuthorDescription>
+          Hi there, I'm Krzysztof I’m an aspiring FrontEnd Developer and
+          absolutely crazy about fishing and cooking. Moreover, I am interested
+          in UX/UI and web design of general meaning. <br />
+          <br />
+          You might be interested in checking the list of my skills. Don’t
+          forget to have a glimpse of my projects. Currently I’m looking for a
+          new challenges so if you have one - please contact with me. <br />
+          <br />
+        </AuthorDescription>
+        <div className="project-titles">
+          <h2>PROJECTS</h2>
+          <ul>
+            <ProjectDescription>Development</ProjectDescription>
+            <ProjectDescription web>Webdesign</ProjectDescription>
+            <ProjectDescription eng>
+              English conversation/homework
+            </ProjectDescription>
+            <ProjectDescription vr>VR / 3D Development</ProjectDescription>
+            <ProjectDescription mark>Marketing</ProjectDescription>
+            <ProjectDescription home>Home duties</ProjectDescription>
+          </ul>
+        </div>
+      </AssideBox>
       <main>
-        <AssideBox>
-          <img src={ImgTasks} alt="picture of author" />
-          <AuthorDescription>
-            Hi there, I'm Krzysztof I’m an aspiring FrontEnd Developer and
-            absolutely crazy about fishing and cooking. Moreover, I am
-            interested in UX/UI and web design of general meaning. <br />
-            <br />
-            You might be interested in checking the list of my skills. Don’t
-            forget to have a glimpse of my projects. Currently I’m looking for a
-            new challenges so if you have one - please contact with me. <br />
-            <br />
-          </AuthorDescription>
-          <div className="project-titles">
-            <h2>PROJECTS</h2>
-            <ul>
-              <ProjectDescription>Development</ProjectDescription>
-              <ProjectDescription web>Webdesign</ProjectDescription>
-              <ProjectDescription eng>
-                English conversation/homework
-              </ProjectDescription>
-              <ProjectDescription vr>VR / 3D Development</ProjectDescription>
-              <ProjectDescription mark>Marketing</ProjectDescription>
-              <ProjectDescription home>Home duties</ProjectDescription>
-            </ul>
-          </div>
-        </AssideBox>
         <div className="form-container">
           <Form
             inputValue={inputValue}
