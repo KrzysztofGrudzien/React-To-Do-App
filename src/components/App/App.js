@@ -16,8 +16,15 @@ const Header = styled.header`
   position: relative;
   z-index: 100;
 
-  h2 {
+  .app-title {
+    font-size: 2rem;
     font-weight: 400;
+    margin: 0;
+  }
+
+  .app-date {
+    font-weight: 400;
+    font-size: 2rem;
     text-transform: uppercase;
   }
 `;
@@ -26,6 +33,13 @@ const WelcomeBox = styled.div`
   align-items: center;
   display: flex;
   text-align: right;
+
+  .app-avatar {
+    border-radius: 50%;
+    height: auto;
+    margin-left: 10px;
+    width: 60px;
+  }
 `;
 
 const AssideBox = styled.div`
@@ -38,6 +52,10 @@ const AssideBox = styled.div`
   position: relative;
   width: 376px;
   z-index: 1;
+
+  .project-titles {
+    padding: 20px;
+  }
 `;
 
 const AuthorDescription = styled.p`
@@ -81,23 +99,22 @@ const App = () => {
   return (
     <div className="App">
       <Header>
-        <h1>
+        <h1 className="app-title">
           TO DO APP <strong>for Developer</strong>
         </h1>
-        <h2>
+        <div className="app-date">
           Today is <b>Friday</b> - 26 / 11 / 2020
-        </h2>
+        </div>
         <WelcomeBox>
-          <div className="info">
-            <p className="info__name">
+          <div className="app-info">
+            <p className="app-info-name">
               <b>Hi, Krzysztof Grudzień</b>
             </p>
-            <p className="info__email">krzysztof.grudzien.fed@gmail.com</p>
+            <p className="app-info-email">krzysztof.grudzien.fed@gmail.com</p>
           </div>
-          <img src={ImgAvatar} alt="picture of author" className="avatar" />
+          <img src={ImgAvatar} alt="picture of author" className="app-avatar" />
         </WelcomeBox>
       </Header>
-
       <main>
         <AssideBox>
           <img src={ImgTasks} alt="picture of author" />
