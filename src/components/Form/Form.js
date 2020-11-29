@@ -1,5 +1,6 @@
 import React from "react";
 import "./Form.scss";
+import randomNumber from "../../utils/randomNumber.js";
 
 const Form = ({
   setInputValue,
@@ -19,7 +20,8 @@ const Form = ({
       {
         text: inputValue,
         completed: false,
-        id: Math.floor(Math.random() * 1000)
+        id: Math.floor(Math.random() * 1000),
+        randomImg: randomNumber(),
       }
     ]);
     setInputValue("");

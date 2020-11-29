@@ -2,7 +2,7 @@ import React from "react";
 import "./ToDoItem.scss";
 import DeerImg from "../../assets/images/deer.png";
 
-const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo }) => {
+const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
   };
@@ -27,7 +27,10 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo }) => {
         <span
           className={`todo-item-done ${toDo.completed ? "completed" : ""}`}
         ></span>
-        <h4 className="todo-item-title">{text}</h4>
+        <h4 className="todo-item-title">
+          {text}
+          {randomImg}
+        </h4>
         <span className="todo-item-date">26/11/2020 at 8:00 p.m</span>
         <div className="todo-item-action-wrapper">
           <img

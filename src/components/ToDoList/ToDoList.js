@@ -12,6 +12,7 @@ const ToDoList = ({ toDoLists, setToDoLists }) => {
             key={toDoList.id}
             id={toDoList.id}
             text={toDoList.text}
+            randomImg={toDoList.randomImg}
             setToDoLists={setToDoLists}
             toDoLists={toDoLists}
             toDo={toDoList}
