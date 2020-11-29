@@ -1,6 +1,7 @@
 import React from "react";
 import "./ToDoItem.scss";
 import DeerImg from "../../assets/images/deer.png";
+import Images from "../../data/Images";
 
 const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
   const handleOnClickDeleteTask = () => {
@@ -31,7 +32,7 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
         <span className="todo-item-date">26/11/2020 at 8:00 p.m</span>
         <div className="todo-item-action-wrapper">
           <img
-            src={DeerImg}
+            src={Images[randomImg]}
             alt="random image"
             className={`todo-item-image ${toDo.completed ? "opacity" : ""}`}
           />
