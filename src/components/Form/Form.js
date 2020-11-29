@@ -61,10 +61,9 @@ const Form = ({
             <input
               className="todo-radio"
               type="radio"
-              name="development"
+              name="category"
               id="development"
               value="development"
-              checked
             />
             Development
           </label>
@@ -74,7 +73,7 @@ const Form = ({
             <input
               className="todo-radio"
               type="radio"
-              name="webdesign"
+              name="category"
               id="webdesign"
               value="webdesign"
             />
@@ -86,7 +85,7 @@ const Form = ({
             <input
               className="todo-radio"
               type="radio"
-              name="english"
+              name="category"
               id="english"
               value="english"
             />
@@ -98,7 +97,7 @@ const Form = ({
             <input
               className="todo-radio"
               type="radio"
-              name="vr"
+              name="category"
               id="vr"
               value="vr"
             />
@@ -110,7 +109,7 @@ const Form = ({
             <input
               className="todo-radio"
               type="radio"
-              name="marketing"
+              name="category"
               id="marketing"
               value="marketing"
             />
@@ -122,7 +121,7 @@ const Form = ({
             <input
               className="todo-radio"
               type="radio"
-              name="home"
+              name="category"
               id="home"
               value="home"
             />
