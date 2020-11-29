@@ -1,3 +1,3 @@
-const randomNumber = () => Math.floor(Math.random() * 20) + 1;
+const randomNumber = () => Math.floor(Math.random() * 20);
 
 export default randomNumber;
