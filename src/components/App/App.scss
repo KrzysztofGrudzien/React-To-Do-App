@@ -23,6 +23,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  scrollbar-width: thin;
+  scrollbar-color: $color-background transparent;
 }
 
 .App {
@@ -62,4 +64,17 @@ button {
   height: 50px;
   padding: 0 40px;
   text-transform: uppercase;
+}
+
+body::-webkit-scrollbar {
+  width: 7px;
+}
+
+body:-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $color-secondary;
+  border: transparent;
 }
