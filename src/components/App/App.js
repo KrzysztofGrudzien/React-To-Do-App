@@ -5,6 +5,7 @@ import ImgAvatar from "../../assets/images/author@2x.jpg";
 import ImgTasks from "../../assets/images/tasks@2x.jpg";
 import Form from "../Form/Form";
 import ToDoList from "../ToDoList/ToDoList";
+import Summary from "../Summary/Summary";
 
 const Header = styled.header`
   align-items: center;
@@ -49,7 +50,7 @@ const AssideBox = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: aside;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100% - 70px);
   position: relative;
   z-index: 1;
 
@@ -127,6 +128,7 @@ const App = () => {
           new challenges so if you have one - please contact with me. <br />
           <br />
         </AuthorDescription>
+        <Summary />
         <div className="project-titles">
           <h2>PROJECTS</h2>
           <ul>
