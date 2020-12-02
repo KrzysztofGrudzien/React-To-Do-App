@@ -1,7 +1,7 @@
 import React from "react";
 import "./ToDoItem.scss";
-import DeerImg from "../../assets/images/deer.png";
 import Images from "../../data/Images";
+import PropTypes from "prop-types";
 
 const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
   const handleOnClickDeleteTask = () => {
@@ -63,6 +63,16 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
       </article>
     </li>
   );
+};
+
+ToDoItem.propTypes = {
+  item: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  toDoLists: PropTypes.array.isRequired,
+  setToDoLists: PropTypes.func.isRequired,
+  toDo: PropTypes.bool.isRequired,
+  randomImg: PropTypes.number.isRequired
 };
 
 export default ToDoItem;

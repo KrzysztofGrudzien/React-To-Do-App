@@ -1,6 +1,7 @@
 import React from "react";
 import ToDoItem from "../ToDoItem/ToDoItem";
 import "./ToDoList.scss";
+import PropTypes from "prop-types";
 
 const ToDoList = ({ toDoLists, setToDoLists }) => {
   return (
@@ -21,6 +22,11 @@ const ToDoList = ({ toDoLists, setToDoLists }) => {
       </ul>
     </div>
   );
+};
+
+ToDoList.propTypes = {
+  toDoLists: PropTypes.array.isRequired,
+  setToDoLists: PropTypes.func.isRequired
 };
 
 export default ToDoList;

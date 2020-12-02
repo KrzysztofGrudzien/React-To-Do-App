@@ -2,6 +2,7 @@ import React from "react";
 import "./Form.scss";
 import randomNumber from "../../utils/randomNumber.js";
 import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
 
 const Form = ({
   setInputValue,
@@ -141,6 +142,14 @@ const Form = ({
       </button>
     </form>
   );
+};
+
+Form.propTypes = {
+  setInputValue: PropTypes.func.isRequired,
+  setToDoLists: PropTypes.func.isRequired,
+  toDoLists: PropTypes.array.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  setStatus: PropTypes.bool.isRequired
 };
 
 export default Form;
