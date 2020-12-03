@@ -87,6 +87,7 @@ const App = () => {
   const [toDoLists, setToDoLists] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredToDoLists, setFilteredToDoLists] = useState([]);
+  const [category, setCategory] = useState("development");
 
   const handleFilteredToDoLists = () => {
     if (status === "completed") {
@@ -97,6 +98,7 @@ const App = () => {
       setFilteredToDoLists(toDoLists);
     }
   };
+
   return (
     <div className="App">
       <Header>
@@ -151,6 +153,8 @@ const App = () => {
             toDoLists={toDoLists}
             setToDoLists={setToDoLists}
             setStatus={setStatus}
+            category={category}
+            setCategory={setCategory}
           />
           <ToDoList toDoLists={toDoLists} setToDoLists={setToDoLists} />
         </div>

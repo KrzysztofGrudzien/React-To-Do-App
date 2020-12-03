@@ -9,7 +9,9 @@ const Form = ({
   setToDoLists,
   toDoLists,
   inputValue,
-  setStatus
+  setStatus,
+  category,
+  setCategory
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -23,7 +25,8 @@ const Form = ({
         text: inputValue,
         completed: false,
         id: uuidv4(),
-        randomImg: randomNumber()
+        randomImg: randomNumber(),
+        category: category
       }
     ]);
     setInputValue("");
@@ -31,6 +34,10 @@ const Form = ({
 
   const handleOnChangeSelectStatus = e => {
     setStatus(e.target.value);
+  };
+
+  const handleOnChangeSelectCategory = e => {
+    setCategory(e.target.value);
   };
 
   return (
@@ -67,6 +74,7 @@ const Form = ({
               type="radio"
               name="category"
               id="development"
+              onChange={handleOnChangeSelectCategory}
               value="development"
             />
             Development
@@ -79,6 +87,7 @@ const Form = ({
               type="radio"
               name="category"
               id="webdesign"
+              onChange={handleOnChangeSelectCategory}
               value="webdesign"
             />
             Webdesign
@@ -91,6 +100,7 @@ const Form = ({
               type="radio"
               name="category"
               id="english"
+              onChange={handleOnChangeSelectCategory}
               value="english"
             />
             English
@@ -103,6 +113,7 @@ const Form = ({
               type="radio"
               name="category"
               id="vr"
+              onChange={handleOnChangeSelectCategory}
               value="vr"
             />
             VR / 3D Development
@@ -115,6 +126,7 @@ const Form = ({
               type="radio"
               name="category"
               id="marketing"
+              onChange={handleOnChangeSelectCategory}
               value="marketing"
             />
             Marketing
@@ -127,6 +139,7 @@ const Form = ({
               type="radio"
               name="category"
               id="home"
+              onChange={handleOnChangeSelectCategory}
               value="home"
             />
             Home Duties

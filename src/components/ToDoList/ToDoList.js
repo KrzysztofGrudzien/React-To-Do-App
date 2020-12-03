@@ -3,7 +3,7 @@ import ToDoItem from "../ToDoItem/ToDoItem";
 import "./ToDoList.scss";
 import PropTypes from "prop-types";
 
-const ToDoList = ({ toDoLists, setToDoLists }) => {
+const ToDoList = ({ toDoLists, setToDoLists, setCategory }) => {
   return (
     <div className="todo-list-wrapper">
       <h3 className="todo-list-title">Development</h3>
@@ -17,6 +17,7 @@ const ToDoList = ({ toDoLists, setToDoLists }) => {
             setToDoLists={setToDoLists}
             toDoLists={toDoLists}
             toDo={toDoList}
+            category={setCategory}
           />
         ))}
       </ul>
