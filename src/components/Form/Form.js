@@ -11,7 +11,9 @@ const Form = ({
   inputValue,
   setStatus,
   category,
-  setCategory
+  setCategory,
+  textareaValue,
+  setTextAreaValue
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -23,6 +25,7 @@ const Form = ({
       ...toDoLists,
       {
         text: inputValue,
+        note: textareaValue,
         completed: false,
         id: uuidv4(),
         randomImg: randomNumber(),
@@ -30,6 +33,7 @@ const Form = ({
       }
     ]);
     setInputValue("");
+    setTextAreaValue("");
   };
 
   const handleOnChangeSelectStatus = e => {
@@ -38,6 +42,10 @@ const Form = ({
 
   const handleOnChangeSelectCategory = e => {
     setCategory(e.target.value);
+  };
+
+  const handleOnChangeTextNote = e => {
+    setTextAreaValue(e.target.value);
   };
 
   return (
@@ -62,7 +70,8 @@ const Form = ({
       <textarea
         type="text"
         className="todo-textarea"
-        value=""
+        onChange={handleOnChangeTextNote}
+        value={textareaValue}
         placeholder="Enter a note to this task"
       />
       <div className="todo-categories">
@@ -160,8 +169,10 @@ const Form = ({
 Form.propTypes = {
   setInputValue: PropTypes.func.isRequired,
   setToDoLists: PropTypes.func.isRequired,
+  setTextAreaValue: PropTypes.func.isRequired,
   toDoLists: PropTypes.array.isRequired,
   inputValue: PropTypes.string.isRequired,
+  inputTextAreaValue: PropTypes.string.isRequired,
   setStatus: PropTypes.bool.isRequired
 };
 

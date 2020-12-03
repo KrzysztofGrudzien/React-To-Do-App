@@ -3,7 +3,15 @@ import "./ToDoItem.scss";
 import Images from "../../data/Images";
 import PropTypes from "prop-types";
 
-const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
+const ToDoItem = ({
+  text,
+  id,
+  toDoLists,
+  setToDoLists,
+  toDo,
+  randomImg,
+  note
+}) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
   };
@@ -44,22 +52,7 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
             <button onClick={handleOnClickDeleteTask} className="btn" />
           </div>
         </div>
-        <p className="todo-item-note">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-          itaque animi hic. Eius voluptate praesentium asperiores enim
-          aspernatur! Magnam distinctio minima dolores soluta nostrum dolor
-          doloremque, vitae fugit vero iste. Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. Dolores itaque animi hic. Eius voluptate
-          praesentium asperiores enim aspernatur! Magnam distinctio minima
-          dolores soluta nostrum dolor doloremque, vitae fugit vero iste. Lorem
-          ipsum dolor, sit amet consectetur adipisicing elit. Dolores itaque
-          animi hic. Eius voluptate praesentium asperiores enim aspernatur!
-          Magnam distinctio minima dolores soluta nostrum dolor doloremque,
-          vitae fugit vero iste. Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Dolores itaque animi hic. Eius voluptate praesentium
-          asperiores enim aspernatur! Magnam distinctio minima dolores soluta
-          nostrum dolor doloremque, vitae fugit vero iste.
-        </p>
+        <p className="todo-item-note">{note}</p>
       </article>
     </li>
   );
@@ -68,6 +61,7 @@ const ToDoItem = ({ text, id, toDoLists, setToDoLists, toDo, randomImg }) => {
 ToDoItem.propTypes = {
   item: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  note: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   toDoLists: PropTypes.array.isRequired,
   setToDoLists: PropTypes.func.isRequired,

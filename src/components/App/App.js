@@ -84,6 +84,7 @@ const ProjectDescription = styled.li`
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
+  const [textareaValue, setTextAreaValue] = useState("");
   const [toDoLists, setToDoLists] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredToDoLists, setFilteredToDoLists] = useState([]);
@@ -155,6 +156,8 @@ const App = () => {
             setStatus={setStatus}
             category={category}
             setCategory={setCategory}
+            textareaValue={textareaValue}
+            setTextAreaValue={setTextAreaValue}
           />
           <ToDoList toDoLists={toDoLists} setToDoLists={setToDoLists} />
         </div>
