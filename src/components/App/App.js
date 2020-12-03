@@ -131,7 +131,7 @@ const App = () => {
           new challenges so if you have one - please contact with me. <br />
           <br />
         </AuthorDescription>
-        <Summary />
+        <Summary toDoLists={toDoLists} />
         <div className="project-titles">
           <h2>PROJECTS</h2>
           <ul>
