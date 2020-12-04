@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.scss";
 import ImgAvatar from "../../assets/images/author@2x.jpg";
@@ -86,15 +86,34 @@ const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [textareaValue, setTextAreaValue] = useState("");
   const [toDoLists, setToDoLists] = useState([]);
-  const [status, setStatus] = useState("all");
   const [filteredToDoLists, setFilteredToDoLists] = useState([]);
   const [category, setCategory] = useState("development");
 
+  useEffect(() => {
+    handleFilteredToDoLists();
+  }, [toDoLists, category]);
+
   const handleFilteredToDoLists = () => {
-    if (status === "completed") {
-      setFilteredToDoLists(toDoLists.filter(toDo => toDo.completed === true));
-    } else if (status === "uncompleted") {
-      setFilteredToDoLists(toDoLists.filter(toDo => toDo.completed === true));
+    if (category === "development") {
+      setFilteredToDoLists(
+        toDoLists.filter(toDo => toDo.category === "development")
+      );
+    } else if (category === "webdesign") {
+      setFilteredToDoLists(
+        toDoLists.filter(toDo => toDo.category === "webdesign")
+      );
+    } else if (category === "english") {
+      setFilteredToDoLists(
+        toDoLists.filter(toDo => toDo.category === "english")
+      );
+    } else if (category === "vr") {
+      setFilteredToDoLists(toDoLists.filter(toDo => toDo.category === "vr"));
+    } else if (category === "marketing") {
+      setFilteredToDoLists(
+        toDoLists.filter(toDo => toDo.category === "marketing")
+      );
+    } else if (category === "home") {
+      setFilteredToDoLists(toDoLists.filter(toDo => toDo.category === "home"));
     } else {
       setFilteredToDoLists(toDoLists);
     }
@@ -153,13 +172,17 @@ const App = () => {
             setInputValue={setInputValue}
             toDoLists={toDoLists}
             setToDoLists={setToDoLists}
-            setStatus={setStatus}
             category={category}
             setCategory={setCategory}
             textareaValue={textareaValue}
             setTextAreaValue={setTextAreaValue}
           />
-          <ToDoList toDoLists={toDoLists} setToDoLists={setToDoLists} />
+          <ToDoList
+            toDoLists={toDoLists}
+            setToDoLists={setToDoLists}
+            category={category}
+            filteredToDoLists={filteredToDoLists}
+          />
         </div>
       </main>
     </div>

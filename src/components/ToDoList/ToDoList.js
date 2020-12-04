@@ -3,17 +3,12 @@ import ToDoItem from "../ToDoItem/ToDoItem";
 import "./ToDoList.scss";
 import PropTypes from "prop-types";
 
-const ToDoList = ({
-  toDoLists,
-  setToDoLists,
-  setCategory,
-  setTextAreaValue
-}) => {
+const ToDoList = ({ toDoLists, setToDoLists, filteredToDoLists }) => {
   return (
     <div className="todo-list-wrapper">
-      <h3 className="todo-list-title">Development</h3>
+      <h3 className="todo-list-title">All tasks</h3>
       <ul className="todo-list">
-        {toDoLists.map(toDoList => (
+        {filteredToDoLists.map(toDoList => (
           <ToDoItem
             key={toDoList.id}
             id={toDoList.id}

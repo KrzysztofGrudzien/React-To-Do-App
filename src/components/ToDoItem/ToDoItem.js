@@ -10,7 +10,8 @@ const ToDoItem = ({
   setToDoLists,
   toDo,
   randomImg,
-  note
+  note,
+  category
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));

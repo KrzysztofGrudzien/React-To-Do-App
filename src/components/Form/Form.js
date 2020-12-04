@@ -9,7 +9,6 @@ const Form = ({
   setToDoLists,
   toDoLists,
   inputValue,
-  setStatus,
   category,
   setCategory,
   textareaValue,
@@ -36,8 +35,8 @@ const Form = ({
     setTextAreaValue("");
   };
 
-  const handleOnChangeSelectStatus = e => {
-    setStatus(e.target.value);
+  const handleOnChangeSelectCategoryType = e => {
+    setCategory(e.target.value);
   };
 
   const handleOnChangeSelectCategory = e => {
@@ -61,10 +60,17 @@ const Form = ({
           value={inputValue}
           placeholder="Enter a todo task"
         />
-        <select className="todo-select" onChange={handleOnChangeSelectStatus}>
+        <select
+          className="todo-select"
+          onChange={handleOnChangeSelectCategoryType}
+        >
           <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
+          <option value="development">Development</option>
+          <option value="webdesign">Webdesign</option>
+          <option value="english">English</option>
+          <option value="vr">VR / 3D Development</option>
+          <option value="marketing">Marketing</option>
+          <option value="home">Home Duties</option>
         </select>
       </div>
       <textarea
@@ -170,10 +176,11 @@ Form.propTypes = {
   setInputValue: PropTypes.func.isRequired,
   setToDoLists: PropTypes.func.isRequired,
   setTextAreaValue: PropTypes.func.isRequired,
+  textareaValue: PropTypes.string.isRequired,
   toDoLists: PropTypes.array.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  inputTextAreaValue: PropTypes.string.isRequired,
-  setStatus: PropTypes.bool.isRequired
+  category: PropTypes.string.isRequired,
+  setCategory: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired
 };
 
 export default Form;
