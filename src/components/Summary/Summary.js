@@ -1,5 +1,4 @@
 import React from "react";
-import SummaryImg from "../../assets/images/summary-tasks.png";
 import "./Summary.scss";
 import countTasks from "../../utils/countTasks.js";
 import countPercentOfTasks from "../../utils/countPercentOfTasks.js";
@@ -7,15 +6,21 @@ import countPercentOfTasks from "../../utils/countPercentOfTasks.js";
 const Summary = ({ toDoLists }) => {
   const completed = countTasks("completed", toDoLists);
   const tasks = countTasks("all", toDoLists);
+  const percent = countPercentOfTasks(completed, tasks);
 
   return (
     <section className="summary">
       <h2 className="summary-title">Statistics tasks</h2>
-      <img src={SummaryImg} alt="summary image" />
-      <span>{countPercentOfTasks(completed, tasks)}</span>
-      <span>
-        {completed}/{tasks}
-      </span>
+      <div className="progress-bar">
+        <span className="progress-bar-percent-total">{percent}</span>
+        <span className="progress-bar-number-total">
+          {completed}/{tasks}
+        </span>
+        <div
+          className="progress-bar-percent"
+          style={{ height: `${percent}`, zIndex: 10 }}
+        ></div>
+      </div>
       <div className="summary-cases">
         Cases
         <ul className="summary-list">
