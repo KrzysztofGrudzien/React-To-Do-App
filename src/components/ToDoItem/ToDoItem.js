@@ -10,8 +10,7 @@ const ToDoItem = ({
   setToDoLists,
   toDo,
   randomImg,
-  note,
-  category
+  note
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -60,13 +59,12 @@ const ToDoItem = ({
 };
 
 ToDoItem.propTypes = {
-  item: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   note: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   toDoLists: PropTypes.array.isRequired,
   setToDoLists: PropTypes.func.isRequired,
-  toDo: PropTypes.bool.isRequired,
+  toDo: PropTypes.any,
   randomImg: PropTypes.number.isRequired
 };
 
