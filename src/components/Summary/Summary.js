@@ -2,6 +2,7 @@ import React from "react";
 import "./Summary.scss";
 import countTasks from "../../utils/countTasks.js";
 import countPercentOfTasks from "../../utils/countPercentOfTasks.js";
+import PropTypes from "prop-types";
 
 const Summary = ({ toDoLists }) => {
   const completed = countTasks("completed", toDoLists);
@@ -44,6 +45,10 @@ const Summary = ({ toDoLists }) => {
       </div>
     </section>
   );
+};
+
+Summary.propTypes = {
+  toDoLists: PropTypes.array.isRequired
 };
 
 export default Summary;
