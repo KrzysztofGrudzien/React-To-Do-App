@@ -40,7 +40,7 @@ const ToDoList = ({ toDoLists, setToDoLists, filteredToDoLists, category }) => {
       ) : category === "marketing" ? (
         <TitleToDoList mark>Marketing</TitleToDoList>
       ) : category === "home" ? (
-        <TitleToDoList home>Marketing</TitleToDoList>
+        <TitleToDoList home>Home duties</TitleToDoList>
       ) : category === "development" ? (
         <TitleToDoList dev>Development</TitleToDoList>
       ) : (
