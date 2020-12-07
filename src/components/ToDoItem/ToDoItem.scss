@@ -3,12 +3,13 @@
 .todo-item {
   border-bottom: 1px solid $color-grey-100;
   min-height: 100px;
-  padding: 5px;
+  padding-bottom: 0px;
 
   &-article {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 20px 0;
 
     .todo-item-title {
       position: relative;
@@ -39,8 +40,15 @@
       width: auto;
     }
 
+    .todo-item-work-time {
+      font-size: 3rem;
+      line-height: 10rem;
+    }
+
     .todo-item-note {
-      padding: 20px 0;
+      background-color: $color-grey-50;
+      margin-top: 20px;
+      padding: 20px 10px;
       width: 100%;
     }
 
@@ -49,31 +57,35 @@
         height: 100px;
         float: left;
         width: auto;
-        margin-right: 5px;
       }
 
       .opacity {
         opacity: 0.5;
       }
+    }
+  }
+}
 
-      .todo-item-actions {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
+.todo-item-actions {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
 
-        .btn {
-          background-image: url("../../assets/icons/bin.svg");
-          background-position: center center;
-          background-repeat: no-repeat;
+  .btn {
+    background-image: url("../../assets/icons/bin.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 
-          &-complete {
-            background: url("../../assets/icons/tick.svg"), $color-green;
-            background-position: center center;
-            background-repeat: no-repeat;
-          }
-        }
-      }
+    &-complete {
+      background: url("../../assets/icons/tick.svg"), $color-green;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    &-edit {
+      background: url("../../assets/icons/edit.svg"), $color-orange;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
   }
 }

@@ -38,22 +38,25 @@ const ToDoItem = ({
         ></span>
         <h4 className="todo-item-title">{text}</h4>
         <span className="todo-item-date">26/11/2020 at 8:00 p.m</span>
+        <span className="todo-item-work-time">1h 30min</span>
         <div className="todo-item-action-wrapper">
           <img
             src={Images[randomImg]}
             alt="random image"
             className={`todo-item-image ${toDo.completed ? "opacity" : ""}`}
           />
-          <div className="todo-item-actions">
-            <button
-              onClick={handleOnClickCompleteTask}
-              className="btn btn-complete"
-            />
-            <button onClick={handleOnClickDeleteTask} className="btn" />
-          </div>
         </div>
+
         <p className="todo-item-note">{note}</p>
       </article>
+      <div className="todo-item-actions">
+        <button
+          onClick={handleOnClickCompleteTask}
+          className="btn btn-complete"
+        />
+        <button onClick={handleOnClickDeleteTask} className="btn" />
+        <button className="btn btn-edit" />
+      </div>
     </li>
   );
 };
