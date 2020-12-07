@@ -31,7 +31,11 @@
   }
 
   .todo-input:focus {
-    border-bottom: 1px solid $color-grey-500;
+    border-bottom: 2px solid $color-green;
+  }
+
+  .invalid {
+    border-bottom: 2px solid $color-red !important;
   }
 
   .todo-textarea {

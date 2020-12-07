@@ -55,7 +55,7 @@ const Form = ({
       <div className="todo-form-wrapper">
         <input
           type="text"
-          className="todo-input"
+          className={`todo-input ${inputValue.length > 100 ? "invalid" : ""}`}
           onChange={handleOnChangeInputValue}
           value={inputValue}
           placeholder="Enter a todo task"
@@ -165,6 +165,7 @@ const Form = ({
         className="todo-button"
         type="submit"
         onClick={handleOnClickSubmit}
+        disabled={inputValue.length < 1 ? true : false}
       >
         add task
       </button>
