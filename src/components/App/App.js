@@ -23,10 +23,28 @@ const Header = styled.header`
     margin: 0;
   }
 
-  .app-date {
-    font-weight: 400;
-    font-size: 2rem;
-    text-transform: uppercase;
+  .app-timer {
+    align-items: center;
+    display: flex;
+
+    &-btn-group {
+      display: flex;
+      margin-left: 50px;
+    }
+
+    &-btn {
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 1.6rem;
+      height: auto;
+      min-width: 50px;
+      margin-right: 10px;
+      padding: 10px 10px;
+    }
+
+    &-time {
+      font-size: 4rem;
+    }
   }
 `;
 
@@ -125,8 +143,13 @@ const App = () => {
         <h1 className="app-title">
           TO DO APP <strong>for Developer</strong>
         </h1>
-        <div className="app-date">
-          Today is <b>Friday</b> - 26 / 11 / 2020
+        <div className="app-timer">
+          <span className="app-timer-time">00:00</span>
+          <div className="app-timer-btn-group">
+            <button className="app-timer-btn">start</button>
+            <button className="app-timer-btn">stop</button>
+            <button className="app-timer-btn">reset</button>
+          </div>
         </div>
         <WelcomeBox>
           <div className="app-info">
