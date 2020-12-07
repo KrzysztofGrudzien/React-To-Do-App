@@ -161,6 +161,17 @@ const Form = ({
           </label>
         </div>
       </div>
+      <div className="todo-time">
+        <h2 className="todo-time-title">TIME YOU NEED</h2>
+        <div className="todo-time-wrapper">
+          <label>Hours</label>
+          <input type="number" min="0" className="todo-input-time" />
+        </div>
+        <div className="todo-time-wrapper">
+          <label>Minutes</label>
+          <input type="number" min="1" className="todo-input-time" />
+        </div>
+      </div>
       <button
         className="todo-button"
         type="submit"

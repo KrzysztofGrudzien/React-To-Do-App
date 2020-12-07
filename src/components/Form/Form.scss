@@ -30,6 +30,33 @@
     width: 70%;
   }
 
+  .todo-time {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-title {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 150px;
+    }
+  }
+
+  .todo-input-time {
+    border: 0;
+    background-color: $color-grey-100;
+    font-size: 3rem;
+    height: 60px;
+    margin: 20px 0;
+    outline: none;
+    padding-left: 20px;
+    width: 100px;
+  }
+
   .todo-input:focus {
     border-bottom: 2px solid $color-green;
   }
