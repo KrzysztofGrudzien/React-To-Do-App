@@ -106,6 +106,7 @@ const App = () => {
   const [toDoLists, setToDoLists] = useState([]);
   const [filteredToDoLists, setFilteredToDoLists] = useState([]);
   const [category, setCategory] = useState("development");
+  const [status, setStatus] = useState(false);
 
   useEffect(() => {
     handleFilteredToDoLists();
@@ -137,6 +138,10 @@ const App = () => {
     }
   };
 
+  const handleOnClickSetStatus = () => {
+    setStatus(!status);
+  };
+
   return (
     <div className="App">
       <Header>
@@ -146,8 +151,20 @@ const App = () => {
         <div className="app-timer">
           <span className="app-timer-time">00:00</span>
           <div className="app-timer-btn-group">
-            <button className="app-timer-btn">start</button>
-            <button className="app-timer-btn">stop</button>
+            <button
+              onClick={handleOnClickSetStatus}
+              className={!status ? "app-timer-btn active" : "app-timer-btn"}
+              disabled={!status}
+            >
+              start
+            </button>
+            <button
+              onClick={handleOnClickSetStatus}
+              className={!status ? "app-timer-btn" : "app-timer-btn active"}
+              disabled={status}
+            >
+              stop
+            </button>
             <button className="app-timer-btn">reset</button>
           </div>
         </div>
@@ -199,6 +216,7 @@ const App = () => {
             setCategory={setCategory}
             textareaValue={textareaValue}
             setTextAreaValue={setTextAreaValue}
+            status={status}
           />
           <ToDoList
             toDoLists={toDoLists}

@@ -12,7 +12,8 @@ const Form = ({
   category,
   setCategory,
   textareaValue,
-  setTextAreaValue
+  setTextAreaValue,
+  status
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -182,14 +183,16 @@ const Form = ({
           />
         </div>
       </div>
+
       <button
-        className="todo-button"
+        className={inputValue.length < 1 ? "todo-button active" : "todo-button"}
         type="submit"
         onClick={handleOnClickSubmit}
-        disabled={inputValue.length < 1 ? true : false}
+        disabled={inputValue.length < 1 ? !status : status}
       >
         add task
       </button>
+      <button className="todo-button mr-10">save task</button>
     </form>
   );
 };
@@ -202,7 +205,8 @@ Form.propTypes = {
   toDoLists: PropTypes.array.isRequired,
   category: PropTypes.string.isRequired,
   setCategory: PropTypes.func.isRequired,
-  inputValue: PropTypes.string.isRequired
+  inputValue: PropTypes.string.isRequired,
+  status: PropTypes.bool.isRequired
 };
 
 export default Form;
