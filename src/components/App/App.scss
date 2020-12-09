@@ -67,6 +67,14 @@ button {
   text-transform: uppercase;
 }
 
+button.active {
+  background-color: darken($color-grey-100, 10);
+}
+
+button.mr-10 {
+  margin-right: 10px;
+}
+
 body::-webkit-scrollbar {
   width: 7px;
 }
