@@ -17,6 +17,10 @@
       font-weight: 600;
     }
 
+    .todo-item-title.done {
+      filter: blur(10px);
+    }
+
     .todo-item-done {
       background-image: url("../../assets/icons/foursquare-check.svg");
       background-position: center center;
@@ -40,6 +44,12 @@
       width: auto;
     }
 
+    .todo-item-date.done,
+    .todo-item-work-time.done,
+    .todo-item-note.done {
+      filter: blur(10px);
+    }
+
     .todo-item-work-time {
       cursor: pointer;
       font-size: 3rem;
@@ -51,18 +61,6 @@
       margin-top: 20px;
       padding: 20px 10px;
       width: 100%;
-    }
-
-    .todo-item-action-wrapper {
-      .todo-item-image {
-        height: 100px;
-        float: left;
-        width: auto;
-      }
-
-      .opacity {
-        opacity: 0.5;
-      }
     }
   }
 }
