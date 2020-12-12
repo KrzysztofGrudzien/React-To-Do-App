@@ -107,10 +107,20 @@ const App = () => {
   const [filteredToDoLists, setFilteredToDoLists] = useState([]);
   const [category, setCategory] = useState("development");
   const [status, setStatus] = useState(false);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {
     handleFilteredToDoLists();
-  }, [toDoLists, category]);
+    if (!isActive) {
+      const intId = setInterval(() => {
+        setSeconds(seconds => seconds + 1);
+      }, 1000);
+      return () => clearInterval(intId);
+    }
+  }, [toDoLists, category, isActive]);
 
   const handleFilteredToDoLists = () => {
     if (category === "development") {
@@ -138,8 +148,12 @@ const App = () => {
     }
   };
 
-  const handleOnClickSetStatus = () => {
-    setStatus(!status);
+  const handleOnClickStartTime = () => {
+    setIsActive(!isActive);
+  };
+
+  const handleOnClickResetTime = () => {
+    setSeconds(0);
   };
 
   return (
@@ -149,23 +163,25 @@ const App = () => {
           TO DO APP <strong>for Developer</strong>
         </h1>
         <div className="app-timer">
-          <span className="app-timer-time">00:00</span>
+          <span className="app-timer-time">
+            {hours < 10 ? `0${hours}` : hours} :{" "}
+            {minutes < 10 ? `0${minutes}` : minutes} :{" "}
+            {seconds < 10 ? `0${seconds}` : seconds}
+          </span>
           <div className="app-timer-btn-group">
             <button
-              onClick={handleOnClickSetStatus}
-              className={!status ? "app-timer-btn active" : "app-timer-btn"}
-              disabled={!status}
+              onClick={handleOnClickStartTime}
+              className={!isActive ? "app-timer-btn active" : "app-timer-btn"}
             >
-              start
+              {isActive ? "start" : "pause"}
             </button>
             <button
-              onClick={handleOnClickSetStatus}
-              className={!status ? "app-timer-btn" : "app-timer-btn active"}
-              disabled={status}
+              onClick={handleOnClickResetTime}
+              className="app-timer-btn"
+              disabled={!isActive}
             >
-              stop
+              reset
             </button>
-            <button className="app-timer-btn">reset</button>
           </div>
         </div>
         <WelcomeBox>
@@ -217,6 +233,12 @@ const App = () => {
             textareaValue={textareaValue}
             setTextAreaValue={setTextAreaValue}
             status={status}
+            hours={hours}
+            minutes={minutes}
+            seconds={seconds}
+            setMinutes={setMinutes}
+            setHours={setHours}
+            setSeconds={setSeconds}
           />
           <ToDoList
             toDoLists={toDoLists}

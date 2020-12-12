@@ -1,6 +1,5 @@
 import React from "react";
 import "./Form.scss";
-import randomNumber from "../../utils/randomNumber.js";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 
@@ -13,7 +12,13 @@ const Form = ({
   setCategory,
   textareaValue,
   setTextAreaValue,
-  status
+  status,
+  hours,
+  setHours,
+  setMinutes,
+  minutes,
+  setSeconds,
+  seconds
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -28,12 +33,17 @@ const Form = ({
         note: textareaValue,
         completed: false,
         id: uuidv4(),
-        randomImg: randomNumber(),
-        category: category
+        category: category,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
       }
     ]);
     setInputValue("");
     setTextAreaValue("");
+    setHours(0);
+    setMinutes(0);
+    setSeconds(0);
   };
 
   const handleOnChangeSelectCategoryType = e => {
@@ -46,6 +56,18 @@ const Form = ({
 
   const handleOnChangeTextNote = e => {
     setTextAreaValue(e.target.value);
+  };
+
+  const handleOnChangeHours = e => {
+    setHours(parseInt(e.target.value === "" ? 0 : e.target.value));
+  };
+
+  const handleOnChangeMinutes = e => {
+    setMinutes(parseInt(e.target.value === "" ? 0 : e.target.value));
+  };
+
+  const handleOnChangeSeconds = e => {
+    setSeconds(parseInt(e.target.value === "" ? 0 : e.target.value));
   };
 
   return (
@@ -171,15 +193,32 @@ const Form = ({
             min="0"
             className="todo-input-time"
             placeholder="0"
+            value={hours}
+            onChange={handleOnChangeHours}
           />
         </div>
         <div className="todo-time-wrapper">
           <label>Minutes</label>
           <input
             type="number"
-            min="1"
+            min="0"
+            max="59"
             className="todo-input-time"
-            placeholder="1"
+            placeholder="0"
+            value={minutes >= 60 ? 59 : minutes}
+            onChange={handleOnChangeMinutes}
+          />
+        </div>
+        <div className="todo-time-wrapper">
+          <label>Seconds</label>
+          <input
+            type="number"
+            min="0"
+            max="59"
+            className="todo-input-time"
+            placeholder="0"
+            value={seconds}
+            onChange={handleOnChangeSeconds}
           />
         </div>
       </div>

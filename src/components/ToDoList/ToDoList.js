@@ -52,12 +52,14 @@ const ToDoList = ({ toDoLists, setToDoLists, filteredToDoLists, category }) => {
             key={toDoList.id}
             id={toDoList.id}
             text={toDoList.text}
-            randomImg={toDoList.randomImg}
             setToDoLists={setToDoLists}
             toDoLists={toDoLists}
             toDo={toDoList}
             category={toDoList.category}
             note={toDoList.note}
+            hours={toDoList.hours}
+            minutes={toDoList.minutes}
+            seconds={toDoList.seconds}
           />
         ))}
       </ul>

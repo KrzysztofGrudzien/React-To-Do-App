@@ -1,6 +1,5 @@
 import React from "react";
 import "./ToDoItem.scss";
-import Images from "../../data/Images";
 import PropTypes from "prop-types";
 
 const ToDoItem = ({
@@ -9,8 +8,10 @@ const ToDoItem = ({
   toDoLists,
   setToDoLists,
   toDo,
-  randomImg,
-  note
+  note,
+  hours,
+  minutes,
+  seconds
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -36,18 +37,22 @@ const ToDoItem = ({
         <span
           className={`todo-item-done ${toDo.completed ? "completed" : ""}`}
         ></span>
-        <h4 className="todo-item-title">{text}</h4>
-        <span className="todo-item-date">26/11/2020 at 8:00 p.m</span>
-        <span className="todo-item-work-time">1h 30min</span>
-        <div className="todo-item-action-wrapper">
-          <img
-            src={Images[randomImg]}
-            alt="random image"
-            className={`todo-item-image ${toDo.completed ? "opacity" : ""}`}
-          />
-        </div>
+        <h4 className={`todo-item-title ${toDo.completed ? "done" : ""}`}>
+          {text}
+        </h4>
+        <span className={`todo-item-date ${toDo.completed ? "done" : ""}`}>
+          26/11/2020 at 8:00 p.m
+        </span>
+        <span
+          className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}
+          title="Click and setup time above"
+        >
+          {hours}h {minutes}min {seconds}sec
+        </span>
 
-        <p className="todo-item-note">{note}</p>
+        <p className={`todo-item-note ${toDo.completed ? "done" : ""}`}>
+          {note}
+        </p>
       </article>
       <div className="todo-item-actions">
         <button
@@ -67,8 +72,7 @@ ToDoItem.propTypes = {
   id: PropTypes.string.isRequired,
   toDoLists: PropTypes.array.isRequired,
   setToDoLists: PropTypes.func.isRequired,
-  toDo: PropTypes.any,
-  randomImg: PropTypes.number.isRequired
+  toDo: PropTypes.any
 };
 
 export default ToDoItem;
