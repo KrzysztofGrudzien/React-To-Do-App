@@ -48,6 +48,7 @@
     .todo-item-work-time.done,
     .todo-item-note.done {
       filter: blur(10px);
+      cursor: not-allowed;
     }
 
     .todo-item-work-time {
