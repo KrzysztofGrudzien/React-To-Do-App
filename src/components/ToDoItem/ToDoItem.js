@@ -52,7 +52,7 @@ const ToDoItem = ({
         <span
           className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}
           title="Click and setup time above"
-          onClick={handleOnClickSetTime}
+          onClick={!toDo.completed ? handleOnClickSetTime : null}
         >
           {hours}h {minutes}min {seconds}sec
         </span>
