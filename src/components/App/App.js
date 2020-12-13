@@ -111,6 +111,7 @@ const App = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [time, setTime] = useState(0);
+  const [date, setDate] = useState("");
   const [isActive, setIsActive] = useState(true);
 
   let updateMinutes, updateSeconds, updateHours;
@@ -247,13 +248,20 @@ const App = () => {
             setHours={setHours}
             setSeconds={setSeconds}
           />
-          <ToDoList
-            toDoLists={toDoLists}
-            setToDoLists={setToDoLists}
-            category={category}
-            filteredToDoLists={filteredToDoLists}
-            setTime={setTime}
-          />
+          {toDoLists.length !== 0 ? (
+            <ToDoList
+              toDoLists={toDoLists}
+              setToDoLists={setToDoLists}
+              category={category}
+              filteredToDoLists={filteredToDoLists}
+              setTime={setTime}
+              date={date}
+            />
+          ) : (
+            <h2 className="info">
+              <strong>NO TASKS TO DO</strong>
+            </h2>
+          )}
         </div>
       </main>
     </div>
