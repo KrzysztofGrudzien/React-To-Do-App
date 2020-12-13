@@ -138,6 +138,7 @@ const App = () => {
   };
 
   if (time < 0) {
+    setIsActive(!isActive);
     setTime(time => time + 1);
   }
 
