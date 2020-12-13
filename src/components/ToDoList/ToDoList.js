@@ -67,6 +67,7 @@ const ToDoList = ({
             minutes={toDoList.minutes}
             seconds={toDoList.seconds}
             setTime={setTime}
+            date={toDoList.date}
           />
         ))}
       </ul>

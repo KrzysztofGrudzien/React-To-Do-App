@@ -12,7 +12,8 @@ const ToDoItem = ({
   hours,
   minutes,
   seconds,
-  setTime
+  setTime,
+  date
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -46,7 +47,7 @@ const ToDoItem = ({
           {text}
         </h4>
         <span className={`todo-item-date ${toDo.completed ? "done" : ""}`}>
-          26/11/2020 at 8:00 p.m
+          {date}
         </span>
         <span
           className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}

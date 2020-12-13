@@ -26,6 +26,7 @@ const Form = ({
 
   const handleOnClickSubmit = e => {
     e.preventDefault();
+    const newDate = new Date();
     setToDoLists([
       ...toDoLists,
       {
@@ -36,7 +37,8 @@ const Form = ({
         category: category,
         hours: hours,
         minutes: minutes,
-        seconds: seconds
+        seconds: seconds,
+        date: newDate.toString().slice(0, 24)
       }
     ]);
     setInputValue("");
@@ -56,6 +58,10 @@ const Form = ({
 
   const handleOnChangeTextNote = e => {
     setTextAreaValue(e.target.value);
+  };
+
+  const handleOnChangeSelectPriority = e => {
+    console.log(e.target.value);
   };
 
   const handleOnChangeHours = e => {
@@ -103,6 +109,7 @@ const Form = ({
         value={textareaValue}
         placeholder="Enter a note to this task"
       />
+
       <div className="todo-categories">
         <h2 className="todo-categories-title">PROJECTS CATEGORY</h2>
         <div className="todo-category">
@@ -184,45 +191,88 @@ const Form = ({
           </label>
         </div>
       </div>
-      <div className="todo-time">
-        <h2 className="todo-time-title">TIME YOU NEED</h2>
-        <div className="todo-time-wrapper">
-          <label>Hours</label>
-          <input
-            type="number"
-            min="0"
-            className="todo-input-time"
-            placeholder="0"
-            value={hours}
-            onChange={handleOnChangeHours}
-          />
+      <div className="todo-radio-box">
+        <div className="todo-time">
+          <h2 className="todo-time-title">TIME YOU NEED</h2>
+          <div className="todo-time-wrapper">
+            <label>Hours</label>
+            <input
+              type="number"
+              min="0"
+              className="todo-input-time"
+              placeholder="0"
+              value={hours}
+              onChange={handleOnChangeHours}
+            />
+          </div>
+          <div className="todo-time-wrapper">
+            <label>Minutes</label>
+            <input
+              type="number"
+              min="0"
+              max="59"
+              className="todo-input-time"
+              placeholder="0"
+              value={minutes >= 60 ? 59 : minutes}
+              onChange={handleOnChangeMinutes}
+            />
+          </div>
+          <div className="todo-time-wrapper">
+            <label>Seconds</label>
+            <input
+              type="number"
+              min="0"
+              max="59"
+              className="todo-input-time"
+              placeholder="0"
+              value={seconds}
+              onChange={handleOnChangeSeconds}
+            />
+          </div>
         </div>
-        <div className="todo-time-wrapper">
-          <label>Minutes</label>
-          <input
-            type="number"
-            min="0"
-            max="59"
-            className="todo-input-time"
-            placeholder="0"
-            value={minutes >= 60 ? 59 : minutes}
-            onChange={handleOnChangeMinutes}
-          />
-        </div>
-        <div className="todo-time-wrapper">
-          <label>Seconds</label>
-          <input
-            type="number"
-            min="0"
-            max="59"
-            className="todo-input-time"
-            placeholder="0"
-            value={seconds}
-            onChange={handleOnChangeSeconds}
-          />
+        <div className="todo-priorities">
+          <h2 className="todo-priorities-title">PRIORITY</h2>
+          <div className="todo-priority">
+            <label for="low">
+              <input
+                className="todo-radio"
+                type="radio"
+                name="priority"
+                id="low"
+                onChange={handleOnChangeSelectPriority}
+                value="low"
+              />
+              Low
+            </label>
+          </div>
+          <div className="todo-priority">
+            <label for="medium">
+              <input
+                className="todo-radio"
+                type="radio"
+                name="priority"
+                id="medium"
+                onChange={handleOnChangeSelectPriority}
+                value="medium"
+              />
+              Medium
+            </label>
+          </div>
+          <div className="todo-priority">
+            <label for="high">
+              <input
+                className="todo-radio"
+                type="radio"
+                name="priority"
+                id="high"
+                onChange={handleOnChangeSelectPriority}
+                value="high"
+              />
+              High
+            </label>
+          </div>
         </div>
       </div>
-
       <button
         className={inputValue.length < 1 ? "todo-button active" : "todo-button"}
         type="submit"
