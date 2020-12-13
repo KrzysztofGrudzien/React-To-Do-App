@@ -113,6 +113,7 @@ const App = () => {
   const [time, setTime] = useState(0);
   const [date, setDate] = useState("");
   const [isActive, setIsActive] = useState(true);
+  const [intervalId, setIntervalId] = useState(null);
 
   let updateMinutes, updateSeconds, updateHours;
 
@@ -122,13 +123,23 @@ const App = () => {
 
   useEffect(() => {
     handleFilteredToDoLists();
-    if (!isActive) {
+    handleIsActive(isActive);
+  }, [toDoLists, category, isActive]);
+
+  const handleIsActive = active => {
+    if ((active = !isActive)) {
       const intId = setInterval(() => {
         setTime(time => time - 1);
       }, 1000);
-      return () => clearInterval(intId);
+      setIntervalId(intId);
+    } else {
+      clearInterval(intervalId);
     }
-  }, [toDoLists, category, isActive]);
+  };
+
+  if (time < 0) {
+    setTime(time => time + 1);
+  }
 
   const handleFilteredToDoLists = () => {
     if (category === "development") {
@@ -180,6 +191,7 @@ const App = () => {
             <button
               onClick={handleOnClickStartTime}
               className={!isActive ? "app-timer-btn active" : "app-timer-btn"}
+              disabled={toDoLists.length < 1 ? true : false}
             >
               {isActive ? "start" : "pause"}
             </button>
