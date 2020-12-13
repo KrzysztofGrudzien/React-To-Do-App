@@ -11,7 +11,8 @@ const ToDoItem = ({
   note,
   hours,
   minutes,
-  seconds
+  seconds,
+  setTime
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -31,6 +32,10 @@ const ToDoItem = ({
     );
   };
 
+  const handleOnClickSetTime = () => {
+    setTime(seconds + minutes * 60 + hours * 60 * 60);
+  };
+
   return (
     <li className="todo-item">
       <article className="todo-item-article">
@@ -46,6 +51,7 @@ const ToDoItem = ({
         <span
           className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}
           title="Click and setup time above"
+          onClick={handleOnClickSetTime}
         >
           {hours}h {minutes}min {seconds}sec
         </span>

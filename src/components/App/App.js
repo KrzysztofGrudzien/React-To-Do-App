@@ -110,13 +110,20 @@ const App = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(true);
+
+  let updateMinutes, updateSeconds, updateHours;
+
+  updateHours = Math.floor(time / 3600);
+  updateMinutes = Math.floor(time / 60) % 60;
+  updateSeconds = time % 60;
 
   useEffect(() => {
     handleFilteredToDoLists();
     if (!isActive) {
       const intId = setInterval(() => {
-        setSeconds(seconds => seconds + 1);
+        setTime(time => time - 1);
       }, 1000);
       return () => clearInterval(intId);
     }
@@ -153,7 +160,7 @@ const App = () => {
   };
 
   const handleOnClickResetTime = () => {
-    setSeconds(0);
+    setTime(0);
   };
 
   return (
@@ -164,9 +171,9 @@ const App = () => {
         </h1>
         <div className="app-timer">
           <span className="app-timer-time">
-            {hours < 10 ? `0${hours}` : hours} :{" "}
-            {minutes < 10 ? `0${minutes}` : minutes} :{" "}
-            {seconds < 10 ? `0${seconds}` : seconds}
+            {updateHours < 10 ? `0${updateHours}` : updateHours} :{" "}
+            {updateMinutes < 10 ? `0${updateMinutes}` : updateMinutes} :{" "}
+            {updateSeconds < 10 ? `0${updateSeconds}` : updateSeconds}
           </span>
           <div className="app-timer-btn-group">
             <button
@@ -245,6 +252,7 @@ const App = () => {
             setToDoLists={setToDoLists}
             category={category}
             filteredToDoLists={filteredToDoLists}
+            setTime={setTime}
           />
         </div>
       </main>

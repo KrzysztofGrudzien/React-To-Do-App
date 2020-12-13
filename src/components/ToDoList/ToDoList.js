@@ -28,7 +28,13 @@ const TitleToDoList = styled.h3`
   width: 100%;
 `;
 
-const ToDoList = ({ toDoLists, setToDoLists, filteredToDoLists, category }) => {
+const ToDoList = ({
+  toDoLists,
+  setToDoLists,
+  filteredToDoLists,
+  category,
+  setTime
+}) => {
   return (
     <div className="todo-list-wrapper">
       {category === "webdesign" ? (
@@ -60,6 +66,7 @@ const ToDoList = ({ toDoLists, setToDoLists, filteredToDoLists, category }) => {
             hours={toDoList.hours}
             minutes={toDoList.minutes}
             seconds={toDoList.seconds}
+            setTime={setTime}
           />
         ))}
       </ul>
