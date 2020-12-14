@@ -13,7 +13,8 @@ const ToDoItem = ({
   minutes,
   seconds,
   setTime,
-  date
+  date,
+  priority
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -56,10 +57,15 @@ const ToDoItem = ({
         >
           {hours}h {minutes}min {seconds}sec
         </span>
+        {note !== "" ? (
+          <p className={`todo-item-note ${toDo.completed ? "done" : ""}`}>
+            {note}
+          </p>
+        ) : null}
 
-        <p className={`todo-item-note ${toDo.completed ? "done" : ""}`}>
-          {note}
-        </p>
+        <span className={`todo-item-priority ${toDo.completed ? "done" : ""}`}>
+          {priority}
+        </span>
       </article>
       <div className="todo-item-actions">
         <button

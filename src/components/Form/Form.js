@@ -18,7 +18,9 @@ const Form = ({
   setMinutes,
   minutes,
   setSeconds,
-  seconds
+  seconds,
+  priority,
+  setPriority
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -38,7 +40,8 @@ const Form = ({
         hours: hours,
         minutes: minutes,
         seconds: seconds,
-        date: newDate.toString().slice(0, 24)
+        date: newDate.toString().slice(0, 24),
+        priority: priority
       }
     ]);
     setInputValue("");
@@ -61,7 +64,7 @@ const Form = ({
   };
 
   const handleOnChangeSelectPriority = e => {
-    console.log(e.target.value);
+    setPriority(e.target.value);
   };
 
   const handleOnChangeHours = e => {

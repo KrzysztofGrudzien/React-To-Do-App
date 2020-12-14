@@ -114,6 +114,7 @@ const App = () => {
   const [date, setDate] = useState("");
   const [isActive, setIsActive] = useState(true);
   const [intervalId, setIntervalId] = useState(null);
+  const [priority, setPriority] = useState("low");
 
   let updateMinutes, updateSeconds, updateHours;
 
@@ -260,6 +261,8 @@ const App = () => {
             setMinutes={setMinutes}
             setHours={setHours}
             setSeconds={setSeconds}
+            priority={priority}
+            setPriority={setPriority}
           />
           {toDoLists.length !== 0 ? (
             <ToDoList
@@ -269,6 +272,7 @@ const App = () => {
               filteredToDoLists={filteredToDoLists}
               setTime={setTime}
               date={date}
+              priority={priority}
             />
           ) : (
             <h2 className="info">

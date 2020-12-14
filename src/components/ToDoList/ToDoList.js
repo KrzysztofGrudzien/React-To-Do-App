@@ -68,6 +68,7 @@ const ToDoList = ({
             seconds={toDoList.seconds}
             setTime={setTime}
             date={toDoList.date}
+            priority={toDoList.priority}
           />
         ))}
       </ul>

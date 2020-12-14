@@ -37,7 +37,7 @@
       background-image: url("../../assets/icons/calendar.svg");
       background-position: left center;
       background-repeat: no-repeat;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       line-height: 10rem;
       padding-left: 20px;
       padding-top: 3px;
@@ -45,6 +45,7 @@
     }
 
     .todo-item-date.done,
+    .todo-item-priority.done,
     .todo-item-work-time.done,
     .todo-item-note.done {
       filter: blur(10px);
