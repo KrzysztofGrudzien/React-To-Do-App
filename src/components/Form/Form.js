@@ -84,10 +84,19 @@ const Form = ({
       <h2 className="todo-form-title">
         TASK <b>TO DO</b>
       </h2>
+      <p
+        className={`todo-info-validation  ${
+          inputValue.length < 10 || inputValue.length > 100 ? "" : "done"
+        }`}
+      >
+        The title must has at least 10 characters but no more than 100
+      </p>
       <div className="todo-form-wrapper">
         <input
           type="text"
-          className={`todo-input ${inputValue.length > 100 ? "invalid" : ""}`}
+          className={`todo-input ${
+            inputValue.length < 10 || inputValue.length > 100 ? "invalid" : ""
+          }`}
           onChange={handleOnChangeInputValue}
           value={inputValue}
           placeholder="Enter a todo task"
@@ -280,7 +289,9 @@ const Form = ({
         className={inputValue.length < 1 ? "todo-button active" : "todo-button"}
         type="submit"
         onClick={handleOnClickSubmit}
-        disabled={inputValue.length < 1 ? !status : status}
+        disabled={
+          inputValue.length < 10 || inputValue.length > 100 ? !status : status
+        }
       >
         add task
       </button>
