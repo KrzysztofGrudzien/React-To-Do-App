@@ -83,16 +83,16 @@ const AuthorDescription = styled.p`
 
 const ProjectDescription = styled.li`
   border-left: 3px solid
-    ${props =>
-      props.web
+    ${({ web, eng, vr, mark, home }) =>
+      web
         ? "#24c770"
-        : props.eng
+        : eng
         ? "#e11bda"
-        : props.vr
+        : vr
         ? "#d2d820"
-        : props.mark
+        : mark
         ? "#ff3e6a"
-        : props.home
+        : home
         ? "#ec7a17"
         : "#4c74f8"};
   font-weight: 600;
