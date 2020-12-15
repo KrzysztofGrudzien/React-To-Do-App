@@ -6,6 +6,7 @@
   padding-bottom: 0px;
 
   &-article {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -13,19 +14,15 @@
 
     .todo-item-title {
       position: relative;
-      line-height: 100px;
       font-weight: 600;
-    }
-
-    .todo-item-title.done {
-      filter: blur(10px);
+      width: 400px;
     }
 
     .todo-item-done {
       background-image: url("../../assets/icons/foursquare-check.svg");
       background-position: center center;
       background-repeat: no-repeat;
-      width: 120px;
+      width: 100px;
       height: 100px;
     }
 
@@ -45,6 +42,7 @@
     }
 
     .todo-item-date.done,
+    .todo-item-title.done,
     .todo-item-priority.done,
     .todo-item-work-time.done,
     .todo-item-note.done {
@@ -56,6 +54,7 @@
       cursor: pointer;
       font-size: 3rem;
       line-height: 10rem;
+      width: 250px;
     }
 
     .todo-item-note {
