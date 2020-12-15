@@ -11,6 +11,7 @@
 
 .todo-form {
   padding: 40px 20px;
+  position: relative;
   width: 100%;
 
   &-title {
@@ -111,6 +112,18 @@
     .todo-radio {
       margin-right: 15px;
     }
+  }
+
+  .todo-info-validation {
+    color: $color-red;
+    left: 50%;
+    position: absolute;
+    top: 15px;
+    transform: translateX(-50%);
+  }
+
+  .todo-info-validation.done {
+    display: none;
   }
 
   .todo-priorities {
