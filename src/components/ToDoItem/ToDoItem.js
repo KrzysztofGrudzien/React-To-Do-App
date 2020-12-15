@@ -1,6 +1,22 @@
 import React from "react";
 import "./ToDoItem.scss";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const Priority = styled.span`
+  background-color: ${({ type }) =>
+    type === "high"
+      ? "#ff3e6a"
+      : type === "medium"
+      ? "#ffac3e"
+      : type === "low"
+      ? "#24c770"
+      : "#4c74f8"};
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  min-width: 150px;
+`;
 
 const ToDoItem = ({
   text,
@@ -57,15 +73,17 @@ const ToDoItem = ({
         >
           {hours}h {minutes}min {seconds}sec
         </span>
+        <Priority
+          type={priority}
+          className={`todo-item-priority ${toDo.completed ? "done" : ""}`}
+        >
+          {priority}
+        </Priority>
         {note !== "" ? (
           <p className={`todo-item-note ${toDo.completed ? "done" : ""}`}>
             {note}
           </p>
         ) : null}
-
-        <span className={`todo-item-priority ${toDo.completed ? "done" : ""}`}>
-          {priority}
-        </span>
       </article>
       <div className="todo-item-actions">
         <button
