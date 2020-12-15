@@ -66,13 +66,14 @@ const ToDoItem = ({
         <span className={`todo-item-date ${toDo.completed ? "done" : ""}`}>
           {date}
         </span>
-        <span
+        <button
           className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}
           title="Click and setup time above"
           onClick={!toDo.completed ? handleOnClickSetTime : null}
         >
           {hours}h {minutes}min {seconds}sec
-        </span>
+          <span>click and set up time</span>
+        </button>
         <Priority
           type={priority}
           className={`todo-item-priority ${toDo.completed ? "done" : ""}`}
