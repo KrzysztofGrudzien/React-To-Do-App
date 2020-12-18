@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Form.scss";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
+import FullStackImg from "../../assets/images/johnny-wick.jpg";
+import FrontendOneImg from "../../assets/images/leon.jpg";
+import BackendImg from "../../assets/images/rambo.png";
+import FrontendTwoImg from "../../assets/images/kill-bill.jpg";
+import DesignerImg from "../../assets/images/hannibal.jpg";
 
 const Form = ({
   setInputValue,
@@ -79,11 +84,18 @@ const Form = ({
     setSeconds(parseInt(e.target.value === "" ? 0 : e.target.value));
   };
 
+  const handleOnChangeDate = e => {
+    console.log(e.target.value);
+  };
+
+  const [startDate, setStartDate] = useState(new Date());
+
   return (
     <form className="todo-form">
       <h2 className="todo-form-title">
         TASK <b>TO DO</b>
       </h2>
+      {/*
       <p
         className={`todo-info-validation  ${
           inputValue.length < 10 || inputValue.length > 100 ? "" : "done"
@@ -91,17 +103,25 @@ const Form = ({
       >
         The title must has at least 10 characters but no more than 100
       </p>
+      */}
       <div className="todo-form-wrapper">
         <input
           type="text"
-          className={`todo-input ${
-            inputValue.length < 10 || inputValue.length > 100 ? "invalid" : ""
-          }`}
+          className={`todo-input ${inputValue.length > 100 ? "invalid" : ""}`}
           onChange={handleOnChangeInputValue}
           value={inputValue}
           placeholder="Enter a todo task"
         />
-        <select
+        <div className="todo-additional-task">
+          <input
+            className="todo-input-additional-task"
+            type="text"
+            placeholder="click and add additional tasks"
+            disabled
+          />
+          <button className="todo-additional-task-add" />
+        </div>
+        {/* <select 
           className="todo-select"
           onChange={handleOnChangeSelectCategoryType}
         >
@@ -113,15 +133,22 @@ const Form = ({
           <option value="marketing">Marketing</option>
           <option value="home">Home Duties</option>
         </select>
+        */}
       </div>
-      <textarea
-        type="text"
-        className="todo-textarea"
-        onChange={handleOnChangeTextNote}
-        value={textareaValue}
-        placeholder="Enter a note to this task"
-      />
-
+      <div className="todo-textarea-wrapper">
+        <textarea
+          type="text"
+          className="todo-textarea"
+          onChange={handleOnChangeTextNote}
+          value={textareaValue}
+          placeholder="Enter a note to this task"
+        />
+        <textarea
+          type="text"
+          className="todo-textarea-comment"
+          placeholder="Enter your comment to this task"
+        />
+      </div>
       <div className="todo-categories">
         <h2 className="todo-categories-title">PROJECTS CATEGORY</h2>
         <div className="todo-category">
@@ -203,6 +230,32 @@ const Form = ({
           </label>
         </div>
       </div>
+      <div className="todo-additional-wrapper">
+        <div className="todo-additional">
+          <h2 className="todo-additional-title">CLIENT</h2>
+          <select className="todo-select todo-select-additional">
+            <option value="">Client 1</option>
+            <option value="">Client 2</option>
+            <option value="">Client 3</option>
+            <option value="">Client 4</option>
+            <option value="">Client 5</option>
+            <option value="">Client 6</option>
+          </select>
+        </div>
+        <div className="todo-additional">
+          <h2 className="todo-additional-title">CURRENT PROJECT</h2>
+          <select className="todo-select todo-select-additional">
+            <option value="">Landing page based on Gatsby for Company Z</option>
+            <option value="">
+              Mortgae calulator based on Node.js and MongoDB
+            </option>
+            <option value="">Branding Campange for Company Y</option>
+            <option value="">SPA - for my company</option>
+            <option value="">Graphic layout for Company X</option>
+            <option value="">Experimental Three.js Website</option>
+          </select>
+        </div>
+      </div>
       <div className="todo-radio-box">
         <div className="todo-time">
           <h2 className="todo-time-title">TIME YOU NEED</h2>
@@ -241,6 +294,10 @@ const Form = ({
               onChange={handleOnChangeSeconds}
             />
           </div>
+        </div>
+        <div className="todo-date">
+          <h2 className="todo-date-title">CHOOSE DATE</h2>
+          <input type="date" className="todo-date-value" />
         </div>
         <div className="todo-priorities">
           <h2 className="todo-priorities-title">PRIORITY</h2>
@@ -285,6 +342,59 @@ const Form = ({
           </div>
         </div>
       </div>
+      <div className="todo-team">
+        <h2 className="todo-team-title">FOR WHO THIS TASK?</h2>
+        <div className="todo-team-member">
+          <img
+            src={FullStackImg}
+            alt=""
+            className="todo-team-member-img responsive"
+            alt="fullstack developer"
+          />
+          <p className="todo-team-member-name">John Wick</p>
+          <p className="todo-team-member-position">FullStack Developer</p>
+        </div>
+        <div className="todo-team-member">
+          <img
+            src={DesignerImg}
+            alt=""
+            className="todo-team-member-img responsive"
+            alt="designer developer"
+          />
+          <p className="todo-team-member-name">Hanibal Lecter</p>
+          <p className="todo-team-member-position">UX/UI Designer</p>
+        </div>
+        <div className="todo-team-member">
+          <img
+            src={BackendImg}
+            alt=""
+            className="todo-team-member-img responsive"
+            alt="backend developer"
+          />
+          <p className="todo-team-member-name">John Rambo</p>
+          <p className="todo-team-member-position">Backend Developer</p>
+        </div>
+        <div className="todo-team-member">
+          <img
+            src={FrontendOneImg}
+            alt=""
+            className="todo-team-member-img responsive"
+            alt="frontend developer"
+          />
+          <p className="todo-team-member-name">Leon</p>
+          <p className="todo-team-member-position">Frontend Developer</p>
+        </div>
+        <div className="todo-team-member">
+          <img
+            src={FrontendTwoImg}
+            alt=""
+            className="todo-team-member-img responsive"
+            alt="frontend developer"
+          />
+          <p className="todo-team-member-name">Kill Bill</p>
+          <p className="todo-team-member-position">Frontend Developer</p>
+        </div>
+      </div>
       <button
         className={inputValue.length < 1 ? "todo-button active" : "todo-button"}
         type="submit"
@@ -295,7 +405,9 @@ const Form = ({
       >
         add task
       </button>
-      <button className="todo-button mr-10">save task</button>
+      <button className="todo-button mr-10" style={{ display: "none" }}>
+        save task
+      </button>
     </form>
   );
 };
