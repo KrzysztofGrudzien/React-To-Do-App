@@ -21,6 +21,15 @@ I've used here:
 - Adobe XD
 - VSC
 
+## Features
+ - Timer for single task
+ - Setting up day and time during current day
+ - Ability to adding title, note, comment for single task
+ - Ability to adding date, priority, category, client, team worker and comment for single task
+ - Ability to adding additional subtasks for a single task
+ - Ability to deleting subtasks
+ - Ability to deleting, edditing and marking individual task if is completed or not
+ - Statistics tasks - to do, completed, all and percentage of completed tasks
 ## How to run the app in local environment
 ### Instalation
 ### `npm start` - Runs the app in the development mode.
