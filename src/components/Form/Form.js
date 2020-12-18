@@ -7,6 +7,10 @@ import FrontendOneImg from "../../assets/images/leon.jpg";
 import BackendImg from "../../assets/images/rambo.png";
 import FrontendTwoImg from "../../assets/images/kill-bill.jpg";
 import DesignerImg from "../../assets/images/hannibal.jpg";
+import CheckedIcon from "../../assets/icons/checkbox-checked-blue.svg";
+import UnCheckedIcon from "../../assets/icons/checkbox-unchecked.svg";
+import BinIcon from "../../assets/icons/bin-blue.svg";
+import TickIcon from "../../assets/icons/tick-green.svg";
 
 const Form = ({
   setInputValue,
@@ -92,6 +96,43 @@ const Form = ({
 
   return (
     <form className="todo-form">
+      <div className="todo-subtasks-wrapper">
+        <button className="todo-subtask-close" />
+        <div className="todo-subtask-wrapper">
+          <input
+            type="text"
+            placeholder="Enter subtask"
+            className="todo-input-subtask"
+          />
+          <button className="todo-subtask-add" />
+        </div>
+        <ul className="todo-subtask-list">
+          <li className="todo-subtask-item">
+            <img src={CheckedIcon} alt="checked icon" />
+            lorem ipsum dolor sit amet, lorem ipsum appour luctus
+            <div>
+              <img src={TickIcon} alt="tick icon" />
+              <img src={BinIcon} alt="trash icon" />
+            </div>
+          </li>
+          <li className="todo-subtask-item">
+            <img src={UnCheckedIcon} alt="checked icon" />
+            lorem ipsum dolor sit amet, lorem ipsum appour luctus
+            <div>
+              <img src={TickIcon} alt="tick icon" />
+              <img src={BinIcon} alt="trash icon" />
+            </div>
+          </li>
+          <li className="todo-subtask-item">
+            <img src={UnCheckedIcon} alt="checked icon" />
+            lorem ipsum dolor sit amet, lorem ipsum appour luctus
+            <div>
+              <img src={TickIcon} alt="tick icon" />
+              <img src={BinIcon} alt="trash icon" />
+            </div>
+          </li>
+        </ul>
+      </div>
       <h2 className="todo-form-title">
         TASK <b>TO DO</b>
       </h2>
