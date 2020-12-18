@@ -77,11 +77,11 @@ const AssideBox = styled.div`
   }
 `;
 
-const AuthorDescription = styled.p`
+const ProjectDescription = styled.p`
   padding: 20px;
 `;
 
-const ProjectDescription = styled.li`
+const ProjectsDescription = styled.li`
   border-left: 3px solid
     ${({ web, eng, vr, mark, home }) =>
       web
@@ -181,7 +181,7 @@ const App = () => {
     <div className="App">
       <Header>
         <h1 className="app-title">
-          TO DO APP <strong>for Developer</strong>
+          TASK MANAGER <strong>for Everyone</strong>
         </h1>
         <div className="app-timer">
           <span className="app-timer-time">
@@ -213,33 +213,31 @@ const App = () => {
             </p>
             <p className="app-info-email">krzysztof.grudzien.fed@gmail.com</p>
           </div>
-          <img src={ImgAvatar} alt="picture of author" className="app-avatar" />
+          <img src={ImgAvatar} alt="author" className="app-avatar" />
         </WelcomeBox>
       </Header>
       <AssideBox>
-        <img src={ImgTasks} alt="picture of author" />
-        <AuthorDescription>
-          Hi there, I'm Krzysztof I’m an aspiring FrontEnd Developer and
-          absolutely crazy about fishing and cooking. Moreover, I am interested
-          in UX/UI and web design of general meaning. <br />
+        <img src={ImgTasks} alt="task manager" />
+        <ProjectDescription>
+          A task manager app is a SPA program used to provide information about
+          projects progress and everything that is required for the development
+          project and not only this.
           <br />
-          You might be interested in checking the list of my skills. Don’t
-          forget to have a glimpse of my projects. Currently I’m looking for a
-          new challenges so if you have one - please contact with me. <br />
           <br />
-        </AuthorDescription>
+          <br />
+        </ProjectDescription>
         <Summary toDoLists={toDoLists} />
         <div className="project-titles">
           <h2>PROJECTS</h2>
           <ul>
-            <ProjectDescription>Development</ProjectDescription>
-            <ProjectDescription web>Webdesign</ProjectDescription>
-            <ProjectDescription eng>
+            <ProjectsDescription>Development</ProjectsDescription>
+            <ProjectsDescription web>Webdesign</ProjectsDescription>
+            <ProjectsDescription eng>
               English conversation/homework
-            </ProjectDescription>
-            <ProjectDescription vr>VR / 3D Development</ProjectDescription>
-            <ProjectDescription mark>Marketing</ProjectDescription>
-            <ProjectDescription home>Home duties</ProjectDescription>
+            </ProjectsDescription>
+            <ProjectsDescription vr>VR / 3D Development</ProjectsDescription>
+            <ProjectsDescription mark>Marketing</ProjectsDescription>
+            <ProjectsDescription home>Home duties</ProjectsDescription>
           </ul>
         </div>
       </AssideBox>
