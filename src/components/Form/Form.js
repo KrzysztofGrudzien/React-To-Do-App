@@ -96,7 +96,7 @@ const Form = ({
 
   return (
     <form className="todo-form">
-      <div className="todo-subtasks-wrapper">
+      {/* <div className="todo-subtasks-wrapper"> 
         <button className="todo-subtask-close" />
         <div className="todo-subtask-wrapper">
           <input
@@ -133,6 +133,7 @@ const Form = ({
           </li>
         </ul>
       </div>
+      */}
       <h2 className="todo-form-title">
         TASK <b>TO DO</b>
       </h2>
