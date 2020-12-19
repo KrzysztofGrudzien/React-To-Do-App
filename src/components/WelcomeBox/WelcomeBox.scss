@@ -1,0 +1,23 @@
+@import "../App/Variables.scss";
+
+.welcome-box-wrapper {
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  grid-area: aside;
+  position: relative;
+  z-index: 1;
+
+  .welcome-box {
+    width: 50%;
+
+    &-title {
+      margin-bottom: 20px;
+    }
+
+    &-description {
+      line-height: 2rem;
+    }
+  }
+}
