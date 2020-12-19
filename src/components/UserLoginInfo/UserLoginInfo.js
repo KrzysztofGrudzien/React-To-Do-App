@@ -4,14 +4,14 @@ import "./UserLoginInfo.scss";
 
 const UserLoginInfo = () => {
   return (
-    <div className="welcome-box-wrapper">
-      <div className="welcome-box">
-        <h2 className="welcome-box-title">
+    <div className="user-login-wrapper">
+      <div className="user-login">
+        <h2 className="user-login-title">
           <b>Hi, Krzysztof Grudzień</b>
         </h2>
-        <p className="welcome-box-email">krzysztof.grudzien.fed@gmail.com</p>
+        <p className="user-login-email">krzysztof.grudzien.fed@gmail.com</p>
       </div>
-      <img src={ImgAvatar} alt="author" className="welcome-box-avatar" />
+      <img src={ImgAvatar} alt="author" className="user-login-avatar" />
     </div>
   );
 };
