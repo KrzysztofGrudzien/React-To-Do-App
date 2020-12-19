@@ -1,8 +1,8 @@
 import React from "react";
 import ImgAvatar from "../../assets/images/author@2x.jpg";
-import "./WelcomeBox.scss";
+import "./UserLoginInfo.scss";
 
-const WelcomeBox = () => {
+const UserLoginInfo = () => {
   return (
     <div className="welcome-box-wrapper">
       <div className="welcome-box">
@@ -16,4 +16,4 @@ const WelcomeBox = () => {
   );
 };
 
-export default WelcomeBox;
+export default UserLoginInfo;
