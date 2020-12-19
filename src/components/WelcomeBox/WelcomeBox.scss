@@ -1,0 +1,21 @@
+.welcome-box-wrapper {
+  align-items: center;
+  display: flex;
+  text-align: right;
+
+  .welcome-box {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      font-size: 2rem;
+    }
+
+    &-avatar {
+      border-radius: 50%;
+      height: auto;
+      margin-left: 10px;
+      width: 60px;
+    }
+  }
+}
