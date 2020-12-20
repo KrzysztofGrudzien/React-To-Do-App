@@ -1,0 +1,13 @@
+@import "../App/Variables.scss";
+
+.welcome-data-info-wrapper {
+  background-color: $color-white;
+  grid-area: intro;
+  height: 100%;
+  width: 400px;
+
+  .project-titles {
+    margin: 30px 10px;
+    padding: 20px;
+  }
+}
