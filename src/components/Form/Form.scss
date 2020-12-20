@@ -1,6 +1,7 @@
 @import "../App/Variables.scss";
 
 .form-container {
+  background-color: $color-white;
   width: 100%;
 }
 
@@ -89,7 +90,7 @@
         outline: none;
       }
 
-      .todo-subtask-add {
+      &-add {
         background-image: url("../../assets/icons/plus-small.svg");
         background-position: center center;
         background-repeat: no-repeat;
@@ -103,7 +104,7 @@
       margin: 30px auto;
       width: 85%;
 
-      .todo-subtask-item {
+      &-item {
         display: flex;
         justify-content: space-between;
         margin: 15px 0;
