@@ -1,0 +1,43 @@
+.app-header {
+  background-color: #ffffff;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  padding: 0 20px;
+  position: relative;
+  z-index: 100;
+
+  &-title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .app-timer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+
+    &-btn-group {
+      display: flex;
+      margin-left: 50px;
+    }
+
+    &-btn {
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 1.6rem;
+      height: auto;
+      min-width: 50px;
+      margin-right: 10px;
+      padding: 10px 10px;
+    }
+
+    &-time {
+      font-size: 4rem;
+    }
+  }
+}
