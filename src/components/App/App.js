@@ -1,104 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import "./App.scss";
-import ImgAvatar from "../../assets/images/author@2x.jpg";
-import ImgTasks from "../../assets/images/tasks@2x.jpg";
 import Form from "../Form/Form";
 import ToDoList from "../ToDoList/ToDoList";
-import Summary from "../Summary/Summary";
-
-const Header = styled.header`
-  align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  grid-area: header;
-  padding: 0 20px;
-  position: relative;
-  z-index: 100;
-
-  .app-title {
-    font-size: 2rem;
-    font-weight: 400;
-    margin: 0;
-  }
-
-  .app-timer {
-    align-items: center;
-    display: flex;
-
-    &-btn-group {
-      display: flex;
-      margin-left: 50px;
-    }
-
-    &-btn {
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 1.6rem;
-      height: auto;
-      min-width: 50px;
-      margin-right: 10px;
-      padding: 10px 10px;
-    }
-
-    &-time {
-      font-size: 4rem;
-    }
-  }
-`;
-
-const WelcomeBox = styled.div`
-  align-items: center;
-  display: flex;
-  text-align: right;
-
-  .app-avatar {
-    border-radius: 50%;
-    height: auto;
-    margin-left: 10px;
-    width: 60px;
-  }
-`;
-
-const AssideBox = styled.div`
-  background-color: #ffffff;
-  border-right: dashed 1px #edeef2;
-  box-sizing: none;
-  display: flex;
-  flex-direction: column;
-  grid-area: aside;
-  min-height: calc(100% - 70px);
-  position: relative;
-  z-index: 1;
-
-  .project-titles {
-    padding: 20px;
-  }
-`;
-
-const ProjectDescription = styled.p`
-  padding: 20px;
-`;
-
-const ProjectsDescription = styled.li`
-  border-left: 3px solid
-    ${({ web, eng, vr, mark, home }) =>
-      web
-        ? "#24c770"
-        : eng
-        ? "#e11bda"
-        : vr
-        ? "#d2d820"
-        : mark
-        ? "#ff3e6a"
-        : home
-        ? "#ec7a17"
-        : "#4c74f8"};
-  font-weight: 600;
-  margin: 10px 0;
-  padding: 5px;
-`;
+import Navigation from "../Navigation/Navigation";
+import WelcomeBox from "../WelcomeBox/WelcomeBox";
+import WelcomeDataInfo from "../WelcomeDataInfo/WelcomeDataInfo";
+import Header from "../Header/Header";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -115,12 +22,6 @@ const App = () => {
   const [isActive, setIsActive] = useState(true);
   const [intervalId, setIntervalId] = useState(null);
   const [priority, setPriority] = useState("low");
-
-  let updateMinutes, updateSeconds, updateHours;
-
-  updateHours = Math.floor(time / 3600);
-  updateMinutes = Math.floor(time / 60) % 60;
-  updateSeconds = time % 60;
 
   useEffect(() => {
     handleFilteredToDoLists();
@@ -179,68 +80,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header>
-        <h1 className="app-title">
-          TASK MANAGER <strong>for Everyone</strong>
-        </h1>
-        <div className="app-timer">
-          <span className="app-timer-time">
-            {updateHours < 10 ? `0${updateHours}` : updateHours} :{" "}
-            {updateMinutes < 10 ? `0${updateMinutes}` : updateMinutes} :{" "}
-            {updateSeconds < 10 ? `0${updateSeconds}` : updateSeconds}
-          </span>
-          <div className="app-timer-btn-group">
-            <button
-              onClick={handleOnClickStartTime}
-              className={!isActive ? "app-timer-btn active" : "app-timer-btn"}
-              disabled={toDoLists.length < 1 ? true : false}
-            >
-              {isActive ? "start" : "pause"}
-            </button>
-            <button
-              onClick={handleOnClickResetTime}
-              className="app-timer-btn"
-              disabled={!isActive}
-            >
-              reset
-            </button>
-          </div>
-        </div>
-        <WelcomeBox>
-          <div className="app-info">
-            <p className="app-info-name">
-              <b>Hi, Krzysztof Grudzień</b>
-            </p>
-            <p className="app-info-email">krzysztof.grudzien.fed@gmail.com</p>
-          </div>
-          <img src={ImgAvatar} alt="author" className="app-avatar" />
-        </WelcomeBox>
-      </Header>
-      <AssideBox>
-        <img src={ImgTasks} alt="task manager" />
-        <ProjectDescription>
-          A task manager app is a SPA program used to provide information about
-          projects progress and everything that is required for the development
-          project and not only this.
-          <br />
-          <br />
-          <br />
-        </ProjectDescription>
-        <Summary toDoLists={toDoLists} />
-        <div className="project-titles">
-          <h2>PROJECTS</h2>
-          <ul>
-            <ProjectsDescription>Development</ProjectsDescription>
-            <ProjectsDescription web>Webdesign</ProjectsDescription>
-            <ProjectsDescription eng>
-              English conversation/homework
-            </ProjectsDescription>
-            <ProjectsDescription vr>VR / 3D Development</ProjectsDescription>
-            <ProjectsDescription mark>Marketing</ProjectsDescription>
-            <ProjectsDescription home>Home duties</ProjectsDescription>
-          </ul>
-        </div>
-      </AssideBox>
+      <Header
+        startTime={handleOnClickStartTime}
+        resetTime={handleOnClickResetTime}
+        toDoLists={toDoLists}
+        time={time}
+        isActive={isActive}
+      />
+      <Navigation />
+      <WelcomeBox />
+      <WelcomeDataInfo toDoLists={toDoLists} />
       <main>
         <div className="form-container">
           <Form
