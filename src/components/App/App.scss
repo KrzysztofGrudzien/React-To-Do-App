@@ -29,12 +29,15 @@ body {
 
 .App {
   display: grid;
-  grid-template-columns: 376px 1fr;
+  grid-template-columns: 100px 1fr 400px;
   grid-template-rows: 70px 1fr;
   grid-template-areas:
     "header header header header"
-    "aside content content content";
+    "menu aside aside intro"
+    "menu content content intro"
+    "menu content content intro";
   position: relative;
+  gap: 20px;
 }
 
 code {
@@ -57,6 +60,7 @@ img.responsive {
 }
 
 main {
+  background-color: $color-background;
   display: flex;
   grid-area: content;
 }
