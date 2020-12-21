@@ -6,6 +6,13 @@ import Navigation from "../Navigation/Navigation";
 import WelcomeBox from "../WelcomeBox/WelcomeBox";
 import WelcomeDataInfo from "../WelcomeDataInfo/WelcomeDataInfo";
 import Header from "../Header/Header";
+import { Switch, Route } from "react-router-dom";
+import Home from "../../pages/Home/Home";
+import Projects from "../../pages/Projects/Projects";
+import Settings from "../../pages/Settings/Settings";
+import Tasks from "../../pages/Tasks/Tasks";
+import Clients from "../../pages/Clients/Clients";
+import Statistics from "../../pages/Statistics/Statistics";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -91,42 +98,63 @@ const App = () => {
       <WelcomeBox />
       <WelcomeDataInfo toDoLists={toDoLists} />
       <main>
-        <div className="form-container">
-          <Form
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            toDoLists={toDoLists}
-            setToDoLists={setToDoLists}
-            category={category}
-            setCategory={setCategory}
-            textareaValue={textareaValue}
-            setTextAreaValue={setTextAreaValue}
-            status={status}
-            hours={hours}
-            minutes={minutes}
-            seconds={seconds}
-            setMinutes={setMinutes}
-            setHours={setHours}
-            setSeconds={setSeconds}
-            priority={priority}
-            setPriority={setPriority}
-          />
-          {toDoLists.length !== 0 ? (
-            <ToDoList
-              toDoLists={toDoLists}
-              setToDoLists={setToDoLists}
-              category={category}
-              filteredToDoLists={filteredToDoLists}
-              setTime={setTime}
-              date={date}
-              priority={priority}
-            />
-          ) : (
-            <h2 className="info">
-              <strong>NO TASKS TO DO</strong>
-            </h2>
-          )}
-        </div>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/clients">
+            <Clients />
+          </Route>
+          <Route path="/projects">
+            <Projects />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+          <Route path="/add-task">
+            <div className="form-container">
+              <Form
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                toDoLists={toDoLists}
+                setToDoLists={setToDoLists}
+                category={category}
+                setCategory={setCategory}
+                textareaValue={textareaValue}
+                setTextAreaValue={setTextAreaValue}
+                status={status}
+                hours={hours}
+                minutes={minutes}
+                seconds={seconds}
+                setMinutes={setMinutes}
+                setHours={setHours}
+                setSeconds={setSeconds}
+                priority={priority}
+                setPriority={setPriority}
+              />
+            </div>
+          </Route>
+          <Route path="/statistics">
+            <Statistics />
+          </Route>
+          <Route path="/tasks">
+            {toDoLists.length !== 0 ? (
+              <ToDoList
+                toDoLists={toDoLists}
+                setToDoLists={setToDoLists}
+                category={category}
+                filteredToDoLists={filteredToDoLists}
+                setTime={setTime}
+                date={date}
+                priority={priority}
+              />
+            ) : (
+              <h2 className="info">
+                <strong>NO TASKS TO DO</strong>
+              </h2>
+            )}
+          </Route>
+        </Switch>
       </main>
     </div>
   );
