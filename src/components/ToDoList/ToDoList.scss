@@ -3,21 +3,22 @@
 .todo-list {
   display: flex;
   flex-direction: column;
-}
 
-.todo-list-wrapper {
-  padding: 0 20px;
-}
+  &-wrapper {
+    padding: 0;
+    width: 100%;
+  }
 
-.todo-list-title {
-  background-color: $color-secondary;
-  color: $color-background;
-  font-size: 2rem;
-  font-weight: 600;
-  height: 70px;
-  line-height: 7rem;
-  margin-top: 50px;
-  text-transform: uppercase;
-  text-align: center;
-  width: 100%;
+  &-title {
+    background-color: $color-secondary;
+    color: $color-background;
+    font-size: 2rem;
+    font-weight: 600;
+    height: 70px;
+    line-height: 7rem;
+    margin-top: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+  }
 }
