@@ -22,7 +22,6 @@ const TitleToDoList = styled.h3`
   font-weight: 600;
   height: 70px;
   line-height: 7rem;
-  margin-top: 50px;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
