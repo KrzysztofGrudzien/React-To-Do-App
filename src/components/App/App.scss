@@ -33,7 +33,7 @@ body {
   grid-template-rows: 70px 1fr;
   grid-template-areas:
     "header header header header"
-    "menu aside aside intro"
+    "menu content content intro"
     "menu content content intro"
     "menu content content intro";
   position: relative;
