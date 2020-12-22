@@ -5,8 +5,8 @@
   background-color: $color-white;
   display: flex;
   justify-content: space-around;
-  grid-area: aside;
   position: relative;
+  height: 300px;
   z-index: 1;
 
   .welcome-box {
