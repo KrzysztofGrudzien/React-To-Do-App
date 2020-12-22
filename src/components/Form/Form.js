@@ -60,10 +60,6 @@ const Form = ({
     setSeconds(0);
   };
 
-  const handleOnChangeSelectCategoryType = e => {
-    setCategory(e.target.value);
-  };
-
   const handleOnChangeSelectCategory = e => {
     setCategory(e.target.value);
   };
@@ -163,19 +159,6 @@ const Form = ({
           />
           <button className="todo-additional-task-add" />
         </div>
-        {/* <select 
-          className="todo-select"
-          onChange={handleOnChangeSelectCategoryType}
-        >
-          <option value="all">All</option>
-          <option value="development">Development</option>
-          <option value="webdesign">Webdesign</option>
-          <option value="english">English</option>
-          <option value="vr">VR / 3D Development</option>
-          <option value="marketing">Marketing</option>
-          <option value="home">Home Duties</option>
-        </select>
-        */}
       </div>
       <div className="todo-textarea-wrapper">
         <textarea

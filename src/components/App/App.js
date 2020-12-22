@@ -6,6 +6,8 @@ import Navigation from "../Navigation/Navigation";
 import WelcomeBox from "../WelcomeBox/WelcomeBox";
 import WelcomeDataInfo from "../WelcomeDataInfo/WelcomeDataInfo";
 import Header from "../Header/Header";
+import SelectCategory from "../Form/SelectCategory";
+import SelectPriority from "../Form/SelectPriority";
 import { Switch, Route } from "react-router-dom";
 import Home from "../../pages/Home/Home";
 import Projects from "../../pages/Projects/Projects";
@@ -95,12 +97,11 @@ const App = () => {
         isActive={isActive}
       />
       <Navigation />
-      <WelcomeBox />
       <WelcomeDataInfo toDoLists={toDoLists} />
       <main>
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <WelcomeBox />
           </Route>
           <Route path="/clients">
             <Clients />
@@ -138,21 +139,27 @@ const App = () => {
             <Statistics />
           </Route>
           <Route path="/tasks">
-            {toDoLists.length !== 0 ? (
-              <ToDoList
-                toDoLists={toDoLists}
-                setToDoLists={setToDoLists}
-                category={category}
-                filteredToDoLists={filteredToDoLists}
-                setTime={setTime}
-                date={date}
-                priority={priority}
-              />
-            ) : (
-              <h2 className="info">
-                <strong>NO TASKS TO DO</strong>
-              </h2>
-            )}
+            <div className="tasks-container">
+              <div className="tasks-filter-container">
+                <SelectPriority setCategory={setCategory} />
+                <SelectCategory setCategory={setCategory} />
+              </div>
+              {toDoLists.length !== 0 ? (
+                <ToDoList
+                  toDoLists={toDoLists}
+                  setToDoLists={setToDoLists}
+                  category={category}
+                  filteredToDoLists={filteredToDoLists}
+                  setTime={setTime}
+                  date={date}
+                  priority={priority}
+                />
+              ) : (
+                <h2 className="info">
+                  <strong>NO TASKS TO DO</strong>
+                </h2>
+              )}
+            </div>
           </Route>
         </Switch>
       </main>
