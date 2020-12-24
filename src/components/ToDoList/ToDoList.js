@@ -31,28 +31,37 @@ const ToDoList = ({
   toDoLists,
   setToDoLists,
   filteredToDoLists,
+  filteredToDoListsPriority,
+  filter,
   category,
   setTime
 }) => {
+  const filterType =
+    filter === "category" ? filteredToDoLists : filteredToDoListsPriority;
+
   return (
     <div className="todo-list-wrapper">
-      {category === "webdesign" ? (
-        <TitleToDoList web>Webdesign</TitleToDoList>
-      ) : category === "vr" ? (
-        <TitleToDoList vr>Vr / 3D Development</TitleToDoList>
-      ) : category === "english" ? (
-        <TitleToDoList eng>English</TitleToDoList>
-      ) : category === "marketing" ? (
-        <TitleToDoList mark>Marketing</TitleToDoList>
-      ) : category === "home" ? (
-        <TitleToDoList home>Home duties</TitleToDoList>
-      ) : category === "development" ? (
-        <TitleToDoList dev>Development</TitleToDoList>
-      ) : (
-        <TitleToDoList>All tasks</TitleToDoList>
-      )}
+      {filter !== "priority" ? (
+        <div>
+          {category === "webdesign" ? (
+            <TitleToDoList web>Webdesign</TitleToDoList>
+          ) : category === "vr" ? (
+            <TitleToDoList vr>Vr / 3D Development</TitleToDoList>
+          ) : category === "english" ? (
+            <TitleToDoList eng>English</TitleToDoList>
+          ) : category === "marketing" ? (
+            <TitleToDoList mark>Marketing</TitleToDoList>
+          ) : category === "home" ? (
+            <TitleToDoList home>Home duties</TitleToDoList>
+          ) : category === "development" ? (
+            <TitleToDoList dev>Development</TitleToDoList>
+          ) : (
+            <TitleToDoList>All tasks</TitleToDoList>
+          )}
+        </div>
+      ) : null}
       <ul className="todo-list">
-        {filteredToDoLists.map(toDoList => (
+        {filterType.map(toDoList => (
           <ToDoItem
             key={toDoList.id}
             id={toDoList.id}
@@ -77,9 +86,7 @@ const ToDoList = ({
 
 ToDoList.propTypes = {
   toDoLists: PropTypes.array.isRequired,
-  setToDoLists: PropTypes.func.isRequired,
-  filteredToDoLists: PropTypes.array.isRequired,
-  category: PropTypes.string.isRequired
+  setToDoLists: PropTypes.func.isRequired
 };
 
 export default ToDoList;
