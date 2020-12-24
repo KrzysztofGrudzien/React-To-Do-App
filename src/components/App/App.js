@@ -6,6 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import WelcomeBox from "../WelcomeBox/WelcomeBox";
 import WelcomeDataInfo from "../WelcomeDataInfo/WelcomeDataInfo";
 import Header from "../Header/Header";
+import SelectFilter from "../Form/SelectFilter";
 import SelectCategory from "../Form/SelectCategory";
 import SelectPriority from "../Form/SelectPriority";
 import { Switch, Route } from "react-router-dom";
@@ -21,6 +22,9 @@ const App = () => {
   const [textareaValue, setTextAreaValue] = useState("");
   const [toDoLists, setToDoLists] = useState([]);
   const [filteredToDoLists, setFilteredToDoLists] = useState([]);
+  const [filteredToDoListsPriority, setFilteredToDoListsPriority] = useState(
+    []
+  );
   const [category, setCategory] = useState("development");
   const [status, setStatus] = useState(false);
   const [hours, setHours] = useState(0);
@@ -31,11 +35,13 @@ const App = () => {
   const [isActive, setIsActive] = useState(true);
   const [intervalId, setIntervalId] = useState(null);
   const [priority, setPriority] = useState("low");
+  const [filter, setFilter] = useState("category");
 
   useEffect(() => {
-    handleFilteredToDoLists();
+    handleFilteredCategory();
+    handleFilteredPriority();
     handleIsActive(isActive);
-  }, [toDoLists, category, isActive]);
+  }, [toDoLists, isActive, priority, category]);
 
   const handleIsActive = active => {
     if ((active = !isActive)) {
@@ -53,7 +59,7 @@ const App = () => {
     setTime(time => time + 1);
   }
 
-  const handleFilteredToDoLists = () => {
+  const handleFilteredCategory = () => {
     if (category === "development") {
       setFilteredToDoLists(
         toDoLists.filter(toDo => toDo.category === "development")
@@ -76,6 +82,24 @@ const App = () => {
       setFilteredToDoLists(toDoLists.filter(toDo => toDo.category === "home"));
     } else {
       setFilteredToDoLists(toDoLists);
+    }
+  };
+
+  const handleFilteredPriority = () => {
+    if (priority === "low") {
+      setFilteredToDoListsPriority(
+        toDoLists.filter(toDo => toDo.priority === "low")
+      );
+    } else if (priority === "medium") {
+      setFilteredToDoListsPriority(
+        toDoLists.filter(toDo => toDo.priority === "medium")
+      );
+    } else if (priority === "high") {
+      setFilteredToDoListsPriority(
+        toDoLists.filter(toDo => toDo.priority === "high")
+      );
+    } else {
+      setFilteredToDoListsPriority(toDoLists);
     }
   };
 
@@ -141,8 +165,20 @@ const App = () => {
           <Route path="/tasks">
             <div className="tasks-container">
               <div className="tasks-filter-container">
-                <SelectPriority setCategory={setCategory} />
-                <SelectCategory setCategory={setCategory} />
+                <SelectFilter
+                  filter={filter}
+                  setFilter={setFilter}
+                  setPriority={setPriority}
+                  setCategory={setCategory}
+                />
+                {filter === "category" ? (
+                  <SelectCategory
+                    setCategory={setCategory}
+                    category={category}
+                  />
+                ) : (
+                  <SelectPriority setPriority={setPriority} />
+                )}
               </div>
               {toDoLists.length !== 0 ? (
                 <ToDoList
@@ -150,6 +186,8 @@ const App = () => {
                   setToDoLists={setToDoLists}
                   category={category}
                   filteredToDoLists={filteredToDoLists}
+                  filteredToDoListsPriority={filteredToDoListsPriority}
+                  filter={filter}
                   setTime={setTime}
                   date={date}
                   priority={priority}
