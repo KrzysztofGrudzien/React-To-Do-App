@@ -1,12 +1,12 @@
 import React from "react";
 import "./Form.scss";
 
-const SelectPriority = ({ setCategory }) => {
-  const handleOnChangeSelectCategoryType = e => {
-    setCategory(e.target.value);
+const SelectPriority = ({ setPriority }) => {
+  const handleOnChangeSelectPriorityType = e => {
+    setPriority(e.target.value);
   };
   return (
-    <select className="todo-select" onChange={handleOnChangeSelectCategoryType}>
+    <select className="todo-select" onChange={handleOnChangeSelectPriorityType}>
       <option value="all">All Prorities</option>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
