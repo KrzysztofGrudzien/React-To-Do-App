@@ -16,7 +16,10 @@ const LastSixTasks = ({ toDoLists }) => {
       </h2>
       <div className="last-tasks-wrapper">
         {toDoLists
-          .slice(toDoLists.length - 6, toDoLists.length + 1)
+          .slice(
+            toDoLists.length > 6 ? toDoLists.length - 6 : 0,
+            toDoLists.length + 1
+          )
           .map(toDo => (
             <article className="last-task-wrapper">
               <div className="last-task">
