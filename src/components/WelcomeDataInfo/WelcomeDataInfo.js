@@ -49,6 +49,7 @@ const WelcomeDataInfo = ({ toDoLists }) => {
           </ProjectsDescription>
         </ul>
       </section>
+      <div className="project-priority"></div>
     </div>
   );
 };

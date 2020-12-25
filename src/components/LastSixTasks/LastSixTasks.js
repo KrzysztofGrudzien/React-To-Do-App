@@ -6,7 +6,9 @@ import ImgAvatar from "../../assets/images/author.jpg";
 const LastSixTasks = ({ toDoLists }) => {
   return (
     <div className="tasks-wrapper">
-      <h2 className="last-tasks-title">Last Tasks</h2>
+      <h2 className="last-tasks-title">
+        {toDoLists.length > 0 ? "Last tasks" : "No tasks to do"}
+      </h2>
       <div className="last-tasks-wrapper">
         {toDoLists
           .slice(toDoLists.length - 6, toDoLists.length + 1)
@@ -29,9 +31,11 @@ const LastSixTasks = ({ toDoLists }) => {
             </article>
           ))}
       </div>
-      <Link to="/tasks" className="btn btn-primary">
-        all tasks <i class="fas fa-arrow-right"></i>
-      </Link>
+      {toDoLists.length > 0 ? (
+        <Link to="/tasks" className="btn btn-primary">
+          all tasks <i class="fas fa-arrow-right"></i>
+        </Link>
+      ) : null}
     </div>
   );
 };
