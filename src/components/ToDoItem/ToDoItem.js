@@ -30,7 +30,8 @@ const ToDoItem = ({
   seconds,
   setTime,
   date,
-  priority
+  priority,
+  author
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -65,6 +66,9 @@ const ToDoItem = ({
         </h4>
         <span className={`todo-item-date ${toDo.completed ? "done" : ""}`}>
           {date}
+        </span>
+        <span className={`todo-item-author ${toDo.completed ? "done" : ""}`}>
+          {author}
         </span>
         <button
           className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}

@@ -29,7 +29,9 @@ const Form = ({
   setSeconds,
   seconds,
   priority,
-  setPriority
+  setPriority,
+  author,
+  setAuthor
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -50,7 +52,8 @@ const Form = ({
         minutes: minutes,
         seconds: seconds,
         date: newDate.toString().slice(0, 24),
-        priority: priority
+        priority: priority,
+        author: author
       }
     ]);
     setInputValue("");
@@ -58,6 +61,7 @@ const Form = ({
     setHours(0);
     setMinutes(0);
     setSeconds(0);
+    setAuthor("");
   };
 
   const handleOnChangeSelectCategory = e => {
@@ -89,6 +93,24 @@ const Form = ({
   };
 
   const [startDate, setStartDate] = useState(new Date());
+
+  const handleOnClickChooseWick = () => {
+    setAuthor("John Wick");
+  };
+
+  const handleOnClickChooseLecter = () => {
+    setAuthor("Hannibal Lecter");
+  };
+
+  const handleOnClickChooseRambo = () => {
+    setAuthor("John Rambo");
+  };
+  const handleOnClickChooseBill = () => {
+    setAuthor("Kill Bill");
+  };
+  const handleOnClickChooseLeon = () => {
+    setAuthor("Leon");
+  };
 
   return (
     <form className="todo-form">
@@ -369,7 +391,7 @@ const Form = ({
       </div>
       <div className="todo-team">
         <h2 className="todo-team-title">FOR WHO THIS TASK?</h2>
-        <div className="todo-team-member">
+        <div className="todo-team-member" onClick={handleOnClickChooseWick}>
           <img
             src={FullStackImg}
             alt=""
@@ -379,7 +401,7 @@ const Form = ({
           <p className="todo-team-member-name">John Wick</p>
           <p className="todo-team-member-position">FullStack Developer</p>
         </div>
-        <div className="todo-team-member">
+        <div className="todo-team-member" onClick={handleOnClickChooseLecter}>
           <img
             src={DesignerImg}
             alt=""
@@ -389,7 +411,7 @@ const Form = ({
           <p className="todo-team-member-name">Hanibal Lecter</p>
           <p className="todo-team-member-position">UX/UI Designer</p>
         </div>
-        <div className="todo-team-member">
+        <div className="todo-team-member" onClick={handleOnClickChooseRambo}>
           <img
             src={BackendImg}
             alt=""
@@ -399,7 +421,7 @@ const Form = ({
           <p className="todo-team-member-name">John Rambo</p>
           <p className="todo-team-member-position">Backend Developer</p>
         </div>
-        <div className="todo-team-member">
+        <div className="todo-team-member" onClick={handleOnClickChooseLeon}>
           <img
             src={FrontendOneImg}
             alt=""
@@ -409,7 +431,7 @@ const Form = ({
           <p className="todo-team-member-name">Leon</p>
           <p className="todo-team-member-position">Frontend Developer</p>
         </div>
-        <div className="todo-team-member">
+        <div className="todo-team-member" onClick={handleOnClickChooseBill}>
           <img
             src={FrontendTwoImg}
             alt=""
