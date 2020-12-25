@@ -45,7 +45,8 @@
     .todo-item-title.done,
     .todo-item-priority.done,
     .todo-item-work-time.done,
-    .todo-item-note.done {
+    .todo-item-note.done,
+    .todo-item-author.done {
       filter: blur(10px);
       cursor: not-allowed;
     }
