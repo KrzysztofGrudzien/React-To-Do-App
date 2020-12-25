@@ -1,0 +1,53 @@
+@import "../App/Variables.scss";
+.tasks-wrapper {
+  margin-top: 20px;
+
+  .last-tasks-wrapper {
+    color: $color-white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px;
+    grid-gap: 20px;
+    margin-top: 20px;
+
+    .last-task-wrapper {
+      background-color: $color-secondary;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 200px;
+      width: 100%;
+    }
+
+    .last-task {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+      padding: 20px;
+
+      &-avatar {
+        border-radius: 50%;
+        border: 3px solid $color-white;
+        height: 60px;
+        width: auto;
+      }
+
+      &-title {
+        font-weight: 600;
+        padding: 20px;
+      }
+
+      &-info {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+
+        &-subtasks {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}

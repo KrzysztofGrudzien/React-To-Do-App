@@ -10,7 +10,8 @@
   flex-direction: column;
   width: 100%;
 }
-.tasks-filter-container {
+.tasks-filter-container,
+.todo-additional-wrapper {
   display: flex;
   justify-content: space-between;
 
@@ -208,7 +209,6 @@
   .todo-time {
     display: flex;
     flex-wrap: wrap;
-    width: 450px;
 
     &-title {
       margin-bottom: 20px;
@@ -330,7 +330,7 @@
 
     &-title {
       font-weight: 800;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       width: 100%;
     }
 

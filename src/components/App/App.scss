@@ -70,6 +70,11 @@ h2.info {
   padding-left: 20px;
 }
 
+.last-tasks-container {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   border: none;
   background-color: $color-secondary;
@@ -107,4 +112,23 @@ body:-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: $color-secondary;
   border: transparent;
+}
+
+.btn {
+  display: block;
+  background-color: $color-secondary;
+  color: $color-white;
+  float: right;
+  font-weight: 800;
+  height: 60px;
+  line-height: 6rem;
+  margin-top: 20px;
+  padding: 0 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  i {
+    display: inline-block;
+    margin-left: 40px;
+  }
 }

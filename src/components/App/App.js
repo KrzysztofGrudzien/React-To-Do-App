@@ -16,6 +16,7 @@ import Settings from "../../pages/Settings/Settings";
 import Tasks from "../../pages/Tasks/Tasks";
 import Clients from "../../pages/Clients/Clients";
 import Statistics from "../../pages/Statistics/Statistics";
+import LastSixTasks from "../LastSixTasks/LastSixTasks";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -125,7 +126,10 @@ const App = () => {
       <main>
         <Switch>
           <Route path="/" exact>
-            <WelcomeBox />
+            <div className="last-tasks-container">
+              <WelcomeBox />
+              <LastSixTasks toDoLists={toDoLists} />
+            </div>
           </Route>
           <Route path="/clients">
             <Clients />
