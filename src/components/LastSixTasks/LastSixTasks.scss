@@ -25,11 +25,22 @@
       height: 100%;
       padding: 20px;
 
+      &-author {
+        display: flex;
+        flex-direction: column;
+
+        &-name {
+          font-weight: 600;
+        }
+      }
+
       &-avatar {
         border-radius: 50%;
-        border: 3px solid $color-white;
-        height: 60px;
-        width: auto;
+        border: 2px solid $color-white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        height: 65px;
+        margin-bottom: 10px;
+        width: 65px;
       }
 
       &-title {
