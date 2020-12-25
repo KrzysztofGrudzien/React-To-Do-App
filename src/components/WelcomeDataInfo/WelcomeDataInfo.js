@@ -2,6 +2,7 @@ import React from "react";
 import Summary from "../Summary/Summary";
 import styled from "styled-components";
 import "./WelcomeDataInfo.scss";
+import SummaryPriority from "../SummaryPriority/SummaryPriority";
 
 const ProjectsDescription = styled.li`
   border-left: 3px solid
@@ -49,7 +50,7 @@ const WelcomeDataInfo = ({ toDoLists }) => {
           </ProjectsDescription>
         </ul>
       </section>
-      <div className="project-priority"></div>
+      <SummaryPriority toDoLists={toDoLists} />
     </div>
   );
 };

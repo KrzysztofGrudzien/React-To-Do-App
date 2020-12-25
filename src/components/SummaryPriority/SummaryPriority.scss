@@ -1,0 +1,45 @@
+@import "../App/Variables.scss";
+
+.summary-priorities {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  &-title {
+    margin-bottom: 20px;
+  }
+
+  .summary-priority {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 50%;
+
+    &-title {
+      padding-bottom: 10px;
+    }
+
+    &-color {
+      border-radius: 50%;
+      color: $color-white;
+      font-weight: 600;
+      height: 40px;
+      line-height: 4rem;
+      text-align: center;
+      width: 40px;
+
+      &-red {
+        background-color: $color-red;
+      }
+
+      &-orange {
+        background-color: $color-orange;
+      }
+
+      &-green {
+        background-color: $color-green;
+      }
+    }
+  }
+}
