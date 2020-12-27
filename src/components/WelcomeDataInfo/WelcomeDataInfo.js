@@ -28,7 +28,7 @@ const WelcomeDataInfo = ({ toDoLists }) => {
     <div className="welcome-data-info-wrapper">
       <Summary toDoLists={toDoLists} />
       <section className="project-titles">
-        <h2 className="project-title">PROJECTS</h2>
+        <h2 className="project-title">CATEGORY OF PROJECT</h2>
         <ul className="project-title-list">
           <ProjectsDescription className="project-title-item">
             Development
