@@ -35,7 +35,11 @@ const Form = ({
   author,
   setAuthor,
   comment,
-  setComment
+  setComment,
+  client,
+  setClient,
+  project,
+  setProject
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -57,11 +61,14 @@ const Form = ({
         date: date,
         priority: priority,
         author: author,
-        comment: comment
+        comment: comment,
+        client: client,
+        project: project
       }
     ]);
     setInputValue("");
     setTextAreaValue("");
+    setComment("");
     setHours(0);
     setMinutes(0);
     setSeconds(0);
@@ -115,6 +122,14 @@ const Form = ({
   };
   const handleOnClickChooseLeon = () => {
     setAuthor("Leon");
+  };
+
+  const handleOnChangeSelectClient = e => {
+    setClient(e.target.value);
+  };
+
+  const handleOnChangeSelectProject = e => {
+    setProject(e.target.value);
   };
 
   return (
@@ -287,26 +302,40 @@ const Form = ({
       <div className="todo-additional-wrapper">
         <div className="todo-additional">
           <h2 className="todo-additional-title">CLIENT</h2>
-          <select className="todo-select todo-select-additional">
-            <option value="">Client 1</option>
-            <option value="">Client 2</option>
-            <option value="">Client 3</option>
-            <option value="">Client 4</option>
-            <option value="">Client 5</option>
-            <option value="">Client 6</option>
+          <select
+            className="todo-select todo-select-additional"
+            onChange={handleOnChangeSelectClient}
+          >
+            <option value="Client 1">Client 1</option>
+            <option value="Client 2">Client 2</option>
+            <option value="Client 3">Client 3</option>
+            <option value="Client 4">Client 4</option>
+            <option value="Client 5">Client 5</option>
+            <option value="Client 6">Client 6</option>
           </select>
         </div>
         <div className="todo-additional">
           <h2 className="todo-additional-title">CURRENT PROJECT</h2>
-          <select className="todo-select todo-select-additional">
-            <option value="">Landing page based on Gatsby for Company Z</option>
-            <option value="">
-              Mortgae calulator based on Node.js and MongoDB
+          <select
+            className="todo-select todo-select-additional"
+            onChange={handleOnChangeSelectProject}
+          >
+            <option value="Landing page based on Gatsby for Client 1">
+              Landing page based on Gatsby for Client 1
             </option>
-            <option value="">Branding Campange for Company Y</option>
-            <option value="">SPA - for my company</option>
-            <option value="">Graphic layout for Company X</option>
-            <option value="">Experimental Three.js Website</option>
+            <option value="Mortgae calulator based on Node.js and MongoDB for Client 3">
+              Mortgae calulator based on Node.js and MongoDB for Client 3
+            </option>
+            <option value="Branding Campange for Company 5">
+              Branding Campange for Company 5
+            </option>
+            <option value="SPA - for our company">SPA - for our compan</option>
+            <option value="Graphic layout for Company 4">
+              Graphic layout for Company 4"
+            </option>
+            <option value="Experimental Three.js Website">
+              Experimental Three.js Website
+            </option>
           </select>
         </div>
       </div>

@@ -6,7 +6,7 @@
     color: $color-white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 200px;
+    grid-template-rows: 260px;
     grid-gap: 20px;
     margin-top: 20px;
 
@@ -15,7 +15,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 200px;
+      //padding-bottom: 20px;
       width: 100%;
     }
 
@@ -33,6 +33,18 @@
         &-name {
           font-weight: 600;
         }
+      }
+
+      &-client {
+        background-color: $color-white;
+        color: $color-secondary;
+        padding: 5px 20px;
+      }
+
+      &-title-project {
+        background-color: $color-white;
+        color: $color-secondary;
+        padding: 5px 20px;
       }
 
       &-notification-sign {
@@ -84,4 +96,9 @@
       }
     }
   }
+}
+
+span.bold {
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }

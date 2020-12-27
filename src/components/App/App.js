@@ -39,6 +39,8 @@ const App = () => {
   const [filter, setFilter] = useState("category");
   const [author, setAuthor] = useState("admin");
   const [comment, setComment] = useState("");
+  const [client, setClient] = useState("our  company");
+  const [project, setProject] = useState("project for us");
 
   useEffect(() => {
     handleFilteredCategory();
@@ -168,6 +170,10 @@ const App = () => {
                 setAuthor={setAuthor}
                 comment={comment}
                 setComment={setComment}
+                project={project}
+                setProject={setProject}
+                client={client}
+                setClient={setClient}
               />
             </div>
           </Route>
@@ -205,6 +211,8 @@ const App = () => {
                   priority={priority}
                   author={author}
                   comment={comment}
+                  project={project}
+                  client={client}
                 />
               ) : (
                 <h2 className="info">

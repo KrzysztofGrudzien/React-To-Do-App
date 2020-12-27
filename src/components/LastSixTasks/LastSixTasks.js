@@ -63,6 +63,12 @@ const LastSixTasks = ({ toDoLists }) => {
               </div>
 
               <h3 className="last-task-title">{toDo.text}</h3>
+              <p className="last-task-client">
+                Client: <span className="bold">{toDo.client}</span>
+              </p>
+              <p className="last-task-title-project">
+                Project: <span className="bold">{toDo.project}</span>
+              </p>
             </article>
           ))}
       </div>

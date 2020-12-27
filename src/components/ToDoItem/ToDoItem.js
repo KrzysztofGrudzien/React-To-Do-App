@@ -32,7 +32,9 @@ const ToDoItem = ({
   date,
   priority,
   author,
-  comment
+  comment,
+  project,
+  client
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -95,6 +97,8 @@ const ToDoItem = ({
             {comment}
           </p>
         ) : null}
+        <p className="todo-item-client">{client}</p>
+        <p className="todo-item-project">{project}</p>
       </article>
       <div className="todo-item-actions">
         <button

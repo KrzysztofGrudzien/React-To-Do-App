@@ -79,6 +79,8 @@ const ToDoList = ({
             priority={toDoList.priority}
             author={toDoList.author}
             comment={toDoList.comment}
+            client={toDoList.client}
+            project={toDoList.project}
           />
         ))}
       </ul>
