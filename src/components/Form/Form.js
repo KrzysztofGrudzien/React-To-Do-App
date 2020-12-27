@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Form.scss";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
@@ -7,10 +7,10 @@ import FrontendOneImg from "../../assets/images/leon.jpg";
 import BackendImg from "../../assets/images/rambo.png";
 import FrontendTwoImg from "../../assets/images/kill-bill.jpg";
 import DesignerImg from "../../assets/images/hannibal.jpg";
-import CheckedIcon from "../../assets/icons/checkbox-checked-blue.svg";
-import UnCheckedIcon from "../../assets/icons/checkbox-unchecked.svg";
-import BinIcon from "../../assets/icons/bin-blue.svg";
-import TickIcon from "../../assets/icons/tick-green.svg";
+// import CheckedIcon from "../../assets/icons/checkbox-checked-blue.svg";
+// import UnCheckedIcon from "../../assets/icons/checkbox-unchecked.svg";
+// import BinIcon from "../../assets/icons/bin-blue.svg";
+// import TickIcon from "../../assets/icons/tick-green.svg";
 
 const Form = ({
   setInputValue,
@@ -28,10 +28,14 @@ const Form = ({
   minutes,
   setSeconds,
   seconds,
+  setDate,
+  date,
   priority,
   setPriority,
   author,
-  setAuthor
+  setAuthor,
+  comment,
+  setComment
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -39,7 +43,6 @@ const Form = ({
 
   const handleOnClickSubmit = e => {
     e.preventDefault();
-    const newDate = new Date();
     setToDoLists([
       ...toDoLists,
       {
@@ -51,9 +54,10 @@ const Form = ({
         hours: hours,
         minutes: minutes,
         seconds: seconds,
-        date: newDate.toString().slice(0, 24),
+        date: date,
         priority: priority,
-        author: author
+        author: author,
+        comment: comment
       }
     ]);
     setInputValue("");
@@ -61,7 +65,6 @@ const Form = ({
     setHours(0);
     setMinutes(0);
     setSeconds(0);
-    setAuthor("");
   };
 
   const handleOnChangeSelectCategory = e => {
@@ -89,10 +92,12 @@ const Form = ({
   };
 
   const handleOnChangeDate = e => {
-    console.log(e.target.value);
+    setDate(e.target.value);
   };
 
-  const [startDate, setStartDate] = useState(new Date());
+  const handleOnChangeTextComment = e => {
+    setComment(e.target.value);
+  };
 
   const handleOnClickChooseWick = () => {
     setAuthor("John Wick");
@@ -193,6 +198,8 @@ const Form = ({
         <textarea
           type="text"
           className="todo-textarea-comment"
+          onChange={handleOnChangeTextComment}
+          value={comment}
           placeholder="Enter your comment to this task"
         />
       </div>
@@ -344,7 +351,11 @@ const Form = ({
         </div>
         <div className="todo-date">
           <h2 className="todo-date-title">CHOOSE DATE</h2>
-          <input type="date" className="todo-date-value" />
+          <input
+            type="date"
+            className="todo-date-value"
+            onChange={handleOnChangeDate}
+          />
         </div>
         <div className="todo-priorities">
           <h2 className="todo-priorities-title">PRIORITY</h2>

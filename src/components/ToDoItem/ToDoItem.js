@@ -31,7 +31,8 @@ const ToDoItem = ({
   setTime,
   date,
   priority,
-  author
+  author,
+  comment
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -87,6 +88,11 @@ const ToDoItem = ({
         {note !== "" ? (
           <p className={`todo-item-note ${toDo.completed ? "done" : ""}`}>
             {note}
+          </p>
+        ) : null}
+        {comment !== "" ? (
+          <p className={`todo-item-comment ${toDo.completed ? "done" : ""}`}>
+            {comment}
           </p>
         ) : null}
       </article>

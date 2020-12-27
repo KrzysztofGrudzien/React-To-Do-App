@@ -38,6 +38,7 @@ const App = () => {
   const [priority, setPriority] = useState("low");
   const [filter, setFilter] = useState("category");
   const [author, setAuthor] = useState("admin");
+  const [comment, setComment] = useState("");
 
   useEffect(() => {
     handleFilteredCategory();
@@ -159,10 +160,14 @@ const App = () => {
                 setMinutes={setMinutes}
                 setHours={setHours}
                 setSeconds={setSeconds}
+                setDate={setDate}
+                date={date}
                 priority={priority}
                 setPriority={setPriority}
                 author={author}
                 setAuthor={setAuthor}
+                comment={comment}
+                setComment={setComment}
               />
             </div>
           </Route>
@@ -199,6 +204,7 @@ const App = () => {
                   date={date}
                   priority={priority}
                   author={author}
+                  comment={comment}
                 />
               ) : (
                 <h2 className="info">
