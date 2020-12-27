@@ -60,53 +60,91 @@ const ToDoItem = ({
 
   return (
     <li className="todo-item">
-      <article className="todo-item-article">
-        <span
-          className={`todo-item-done ${toDo.completed ? "completed" : ""}`}
-        ></span>
-        <h4 className={`todo-item-title ${toDo.completed ? "done" : ""}`}>
+      <div className="todo-item-label">
+        <div className="todo-item-status">STATUS</div>
+        <div className="todo-item-task">TASK</div>
+        <div className="todo-item-date">DEADLINE</div>
+        <div className="todo-item-author">AUTHOR</div>
+      </div>
+      <div className="todo-item-content">
+        <div className="todo-item-status">
+          <span
+            className={`todo-item-status-check ${
+              toDo.completed ? "completed" : ""
+            }`}
+          >
+            {""}
+          </span>
+        </div>
+        <div className={`todo-item-task ${toDo.completed ? "done" : ""}`}>
           {text}
-        </h4>
-        <span className={`todo-item-date ${toDo.completed ? "done" : ""}`}>
+        </div>
+        <div className={`todo-item-date ${toDo.completed ? "done" : ""}`}>
           {date}
-        </span>
-        <span className={`todo-item-author ${toDo.completed ? "done" : ""}`}>
+        </div>
+        <div className={`todo-item-author ${toDo.completed ? "done" : ""}`}>
           {author}
-        </span>
-        <button
-          className={`todo-item-work-time ${toDo.completed ? "done" : ""}`}
-          title="Click and setup time above"
-          onClick={!toDo.completed ? handleOnClickSetTime : null}
-        >
+        </div>
+      </div>
+      <div className="todo-item-label">
+        <div className="todo-item-client">CLIENT</div>
+        <div className="todo-item-project">PROJECT</div>
+        <div className="todo-item-time">TIME NEDEED</div>
+        <div className="todo-item-priority">PRIORITY</div>
+      </div>
+      <div className="todo-item-content">
+        <div className={`todo-item-client ${toDo.completed ? "done" : ""}`}>
+          {client}
+        </div>
+        <div className={`todo-item-project ${toDo.completed ? "done" : ""}`}>
+          {project}
+        </div>
+        <div className="todo-item-time">
           {hours}h {minutes}min {seconds}sec
-          <span>click and set up time</span>
-        </button>
-        <Priority
-          type={priority}
-          className={`todo-item-priority ${toDo.completed ? "done" : ""}`}
-        >
+        </div>
+        <div className={`todo-item-priority ${toDo.completed ? "done" : ""}`}>
           {priority}
-        </Priority>
-        {note !== "" ? (
-          <p className={`todo-item-note ${toDo.completed ? "done" : ""}`}>
-            {note}
-          </p>
-        ) : null}
-        {comment !== "" ? (
-          <p className={`todo-item-comment ${toDo.completed ? "done" : ""}`}>
-            {comment}
-          </p>
-        ) : null}
-        <p className="todo-item-client">{client}</p>
-        <p className="todo-item-project">{project}</p>
-      </article>
-      <div className="todo-item-actions">
+        </div>
+      </div>
+      <div className="todo-item-label">
+        <div className="todo-item-note">NOTE</div>
+        <div className="todo-item-comment">COMMENT</div>
+        <div className="todo-item-subtasks">SUBTASKS</div>
+      </div>
+      <div className="todo-item-content">
+        <div
+          className={`todo-item-note todo-item-note-text ${
+            toDo.completed ? "done" : ""
+          }`}
+        >
+          {note}
+        </div>
+        <div
+          className={`todo-item-comment todo-item-comment-text ${
+            toDo.completed ? "done" : ""
+          }`}
+        >
+          {comment}
+        </div>
+        <div className="todo-item-subtasks todo-item-subtasks-list">
+          <ul className={`${toDo.completed ? "done" : ""}`}>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+            <li>item 5</li>
+            <li>item 6</li>
+            <li>item 7</li>
+          </ul>
+        </div>
+      </div>
+      <div className="todo-item-buttons">
         <button
           onClick={handleOnClickCompleteTask}
           className="btn btn-complete"
         />
-        <button onClick={handleOnClickDeleteTask} className="btn" />
         <button className="btn btn-edit" />
+        <button onClick={handleOnClickDeleteTask} className="btn" />
       </div>
     </li>
   );

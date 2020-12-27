@@ -2,91 +2,15 @@
 
 .todo-item {
   border-bottom: 1px solid $color-grey-100;
+  display: flex;
+  flex-direction: column;
   min-height: 100px;
   padding-bottom: 0px;
 
-  &-article {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px 0;
-
-    .todo-item-title {
-      position: relative;
-      font-weight: 600;
-      width: 400px;
-    }
-
-    .todo-item-done {
-      background-image: url("../../assets/icons/foursquare-check.svg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      width: 100px;
-      height: 100px;
-    }
-
-    .completed {
-      background-image: url("../../assets/icons/foursquare-check-in.svg");
-    }
-
-    .todo-item-date {
-      background-image: url("../../assets/icons/calendar.svg");
-      background-position: left center;
-      background-repeat: no-repeat;
-      font-size: 1.4rem;
-      line-height: 10rem;
-      padding-left: 20px;
-      padding-top: 3px;
-      width: auto;
-    }
-
-    .todo-item-date.done,
-    .todo-item-title.done,
-    .todo-item-priority.done,
-    .todo-item-work-time.done,
-    .todo-item-note.done,
-    .todo-item-author.done,
-    .todo-item-comment.done {
-      filter: blur(10px);
-      cursor: not-allowed;
-    }
-
-    .todo-item-work-time {
-      background-color: $color-grey-100;
-      border: solid 1px lighten($color-grey-500, 35%);
-      border-radius: 3px;
-      cursor: pointer;
-      color: $color-primary;
-      font-size: 3rem;
-      height: 70px;
-      line-height: 100%;
-      position: relative;
-      padding: 20px;
-      text-transform: none;
-      width: 300px;
-
-      span {
-        top: -30px;
-        font-size: 1.2rem;
-        position: absolute;
-        right: 0;
-      }
-    }
-
-    .todo-item-note {
-      background-color: $color-grey-50;
-      margin-top: 20px;
-      padding: 20px 10px;
-      width: 100%;
-    }
+  button {
+    height: 50px;
+    width: 100px;
   }
-}
-
-.todo-item-actions {
-  display: flex;
-  justify-content: flex-end;
-  height: 100%;
 
   .btn {
     background-image: url("../../assets/icons/bin.svg");
@@ -105,5 +29,116 @@
       background-position: center center;
       background-repeat: no-repeat;
     }
+  }
+
+  &-label,
+  &-content {
+    display: flex;
+  }
+
+  &-label {
+    font-size: 1.4rem;
+
+    div {
+      background-color: $color-grey-100;
+      font-weight: 600;
+      margin: 5px 0;
+      margin-right: 5px;
+      padding: 15px;
+      text-align: center;
+    }
+  }
+
+  &-status {
+    position: relative;
+    width: 100px;
+
+    &-check {
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 38px;
+    }
+
+    .completed {
+      background-color: $color-secondary;
+      background-image: url("../../assets/icons/foursquare-check-in.svg");
+    }
+  }
+
+  &-task {
+    flex-grow: 1;
+  }
+
+  &-date {
+    width: 180px;
+  }
+
+  &-author {
+    min-width: 250px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-client {
+    flex-grow: 1;
+  }
+
+  &-project {
+    min-width: 350px;
+  }
+
+  &-time {
+    min-width: 200px;
+  }
+
+  &-priority {
+    min-width: 200px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-note {
+    width: 400px;
+
+    &-text {
+      min-height: 100px;
+    }
+  }
+
+  &-comment {
+    width: 300px;
+  }
+
+  &-subtasks {
+    flex-grow: 1;
+  }
+
+  &-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+  }
+
+  &-content {
+    margin-bottom: 30px;
+
+    div {
+      border: 1px solid $color-grey-100;
+      margin: 5px 0;
+      margin-right: 5px;
+      padding: 10px;
+    }
+  }
+
+  .done {
+    text-decoration: line-through !important;
   }
 }
