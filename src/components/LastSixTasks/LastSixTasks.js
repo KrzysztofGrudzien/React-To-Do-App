@@ -24,6 +24,17 @@ const LastSixTasks = ({ toDoLists }) => {
             <article className="last-task-wrapper">
               <div className="last-task">
                 <div className="last-task-author">
+                  <span
+                    className={`last-task-notification-sign ${
+                      toDo.priority === "high"
+                        ? "last-task-notification-sign-red"
+                        : toDo.priority === "medium"
+                        ? "last-task-notification-sign-orange"
+                        : toDo.priority === "low"
+                        ? "last-task-notification-sign-green"
+                        : ""
+                    } `}
+                  />
                   <img
                     src={
                       toDo.author === "John Rambo"

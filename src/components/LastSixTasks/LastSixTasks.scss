@@ -28,9 +28,32 @@
       &-author {
         display: flex;
         flex-direction: column;
+        position: relative;
 
         &-name {
           font-weight: 600;
+        }
+      }
+
+      &-notification-sign {
+        background-color: $color-white;
+        border-radius: 50%;
+        height: 12px;
+        left: 60px;
+        position: absolute;
+        top: 0;
+        width: 12px;
+
+        &-red {
+          background-color: $color-red;
+        }
+
+        &-orange {
+          background-color: $color-orange;
+        }
+
+        &-green {
+          background-color: $color-green;
         }
       }
 
