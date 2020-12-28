@@ -13,9 +13,13 @@ const Priority = styled.span`
       ? "#24c770"
       : "#4c74f8"};
   color: #ffffff;
-  padding: 20px;
+  height: 100%;
+  display: inline-block;
   text-align: center;
-  min-width: 150px;
+  margin: 5px 0;
+  margin-right: 5px;
+  padding: 15px;
+  min-width: 200px;
 `;
 
 const ToDoItem = ({
@@ -99,12 +103,19 @@ const ToDoItem = ({
         <div className={`todo-item-project ${toDo.completed ? "done" : ""}`}>
           {project}
         </div>
-        <div className="todo-item-time">
+        <div
+          className={`todo-item-time ${toDo.completed ? "done" : ""}`}
+          onClick={handleOnClickSetTime}
+        >
           {hours}h {minutes}min {seconds}sec
         </div>
-        <div className={`todo-item-priority ${toDo.completed ? "done" : ""}`}>
+
+        <Priority
+          className={`todo-item-priority ${toDo.completed ? "done" : ""}`}
+          type={priority}
+        >
           {priority}
-        </div>
+        </Priority>
       </div>
       <div className="todo-item-label">
         <div className="todo-item-note">NOTE</div>

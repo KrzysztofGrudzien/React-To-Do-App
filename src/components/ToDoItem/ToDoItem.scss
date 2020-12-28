@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100px;
-  padding-bottom: 0px;
+  margin-bottom: 30px;
 
   button {
     height: 50px;
@@ -60,13 +60,24 @@
       left: 0;
       top: 0;
       width: 100px;
-      height: 38px;
+      height: 100%;
     }
 
     .completed {
       background-color: $color-secondary;
       background-image: url("../../assets/icons/foursquare-check-in.svg");
     }
+  }
+  &-task,
+  &-date,
+  &-author,
+  &-client,
+  &-project,
+  &-time,
+  &-priority,
+  &-note,
+  &-comment {
+    text-align: center;
   }
 
   &-task {
@@ -94,7 +105,10 @@
   }
 
   &-time {
-    min-width: 200px;
+    background-color: $color-grey-100;
+    cursor: pointer;
+    font-weight: 600;
+    width: 200px;
   }
 
   &-priority {
@@ -128,13 +142,13 @@
   }
 
   &-content {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 
     div {
       border: 1px solid $color-grey-100;
       margin: 5px 0;
       margin-right: 5px;
-      padding: 10px;
+      padding: 15px;
     }
   }
 
