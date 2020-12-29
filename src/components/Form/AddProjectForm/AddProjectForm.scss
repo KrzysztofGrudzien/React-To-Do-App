@@ -1,0 +1,48 @@
+@import "../../App/Variables.scss";
+
+.form-container {
+  padding: 20px;
+}
+
+.project-form {
+  margin-top: 20px;
+
+  &-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 120px auto;
+    gap: 20px;
+
+    .project-input {
+      background-color: $color-grey-100;
+      border: 0;
+      font-size: 1.6rem;
+      height: 70px;
+      outline: none;
+      padding-left: 20px;
+      width: 100%;
+    }
+
+    .project-textarea {
+      background-color: $color-grey-100;
+      border: 0;
+      font-size: 1.6rem;
+      font-family: "Roboto", sans-serif;
+      height: 200px;
+      outline: none;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .project-input-title {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    button {
+      align-self: flex-end;
+      margin-bottom: 3px;
+    }
+  }
+}
