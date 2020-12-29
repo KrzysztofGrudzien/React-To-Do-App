@@ -12,7 +12,7 @@ const LastSixTasks = ({ toDoLists }) => {
   return (
     <div className="tasks-wrapper">
       <h2 className="last-tasks-title">
-        {toDoLists.length > 0 ? "Last tasks" : "No tasks to do"}
+        {toDoLists.length > 0 ? "LAST TASKS" : "NO TASKS TO DO"}
       </h2>
       <div className="last-tasks-wrapper">
         {toDoLists
