@@ -62,6 +62,7 @@ img.responsive {
 main {
   background-color: $color-background;
   display: flex;
+  flex-direction: column;
   grid-area: content;
 }
 
