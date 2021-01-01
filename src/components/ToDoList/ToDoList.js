@@ -20,8 +20,8 @@ const TitleToDoList = styled.h3`
   color: #f9feff;
   font-size: 2rem;
   font-weight: 600;
-  height: 70px;
-  line-height: 7rem;
+  height: 48px;
+  line-height: 5rem;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
