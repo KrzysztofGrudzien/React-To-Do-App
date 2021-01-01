@@ -17,7 +17,7 @@ const AddProjectForm = () => {
           </div>
           <div className="project-input-wrapper">
             <h3 className="project-input-title">Budget</h3>
-            <input type="number" min="0" className="project-input" />
+            <input type="number" min="0" className="project-input" value="0" />
           </div>
           <div className="project-textarea-wrapper">
             <h3 className="project-input-title">Description</h3>
