@@ -1,0 +1,137 @@
+@import "../../App/Variables.scss";
+
+.form-container {
+  padding: 20px;
+}
+
+.client-form {
+  margin-top: 20px;
+
+  &-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    .client-input-wrapper {
+      &:nth-of-type(1) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+      }
+
+      &:nth-of-type(2) {
+        margin-bottom: 20px;
+        width: calc(50% - 20px);
+      }
+
+      &:nth-of-type(3) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+      }
+
+      &:nth-of-type(4) {
+        margin-bottom: 20px;
+        width: calc(50% - 20px);
+      }
+
+      &:nth-of-type(5) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 20%;
+      }
+
+      &:nth-of-type(6) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: calc(40% - 20px);
+      }
+
+      &:nth-of-type(7) {
+        margin-bottom: 20px;
+        width: calc(40% - 20px);
+      }
+
+      &:nth-of-type(8) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: calc(100% - 440px);
+      }
+
+      &:nth-of-type(9) {
+        font-size: 3rem;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 120px;
+      }
+
+      &:nth-of-type(10) {
+        margin-bottom: 20px;
+        width: 280px;
+      }
+
+      &:nth-of-type(11) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+      }
+
+      &:nth-of-type(12) {
+        margin-bottom: 20px;
+        width: calc(50% - 20px);
+      }
+
+      &:nth-of-type(13) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+      }
+
+      &:nth-of-type(14) {
+        margin-bottom: 20px;
+        width: calc(50% - 20px);
+      }
+
+      &:nth-of-type(15) {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+      }
+
+      .client-input {
+        background-color: $color-grey-100;
+        border: 0;
+        font-size: 1.6rem;
+        height: 70px;
+        outline: none;
+        padding-left: 20px;
+        width: 100%;
+      }
+
+      .client-textarea {
+        background-color: $color-grey-100;
+        border: 0;
+        font-size: 1.6rem;
+        font-family: "Roboto", sans-serif;
+        height: 200px;
+        outline: none;
+        padding: 20px;
+        width: 100%;
+      }
+
+      .client-input-title {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+    }
+
+    button {
+      bottom: 0;
+      height: 70px;
+      margin-bottom: 20px;
+      position: absolute;
+      right: 0;
+    }
+  }
+}

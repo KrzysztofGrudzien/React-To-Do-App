@@ -1,5 +1,12 @@
+import React from "react";
+import AddClientForm from "../../components/Form/AddClientForm/AddClientForm";
+
 const Clients = () => {
-  return <h1>Clients</h1>;
+  return (
+    <>
+      <AddClientForm />
+    </>
+  );
 };
 
 export default Clients;
