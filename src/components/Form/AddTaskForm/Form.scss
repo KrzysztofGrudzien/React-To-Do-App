@@ -1,4 +1,4 @@
-@import "../App/Variables.scss";
+@import "../../App/Variables.scss";
 
 .form-container {
   background-color: $color-white;
@@ -119,7 +119,7 @@
   }
 
   .todo-additional-task-add {
-    background-image: url("../../assets/icons/plus-small.svg");
+    background-image: url("../../../assets/icons/plus-small.svg");
     background-position: center center;
     background-repeat: no-repeat;
     font-size: 3rem;
@@ -155,7 +155,7 @@
       }
 
       &-add {
-        background-image: url("../../assets/icons/plus-small.svg");
+        background-image: url("../../../assets/icons/plus-small.svg");
         background-position: center center;
         background-repeat: no-repeat;
         height: 60px;
@@ -188,7 +188,7 @@
 
     .todo-subtask-close {
       &::before {
-        background-image: url("../../assets/icons/plus-small.svg");
+        background-image: url("../../../assets/icons/plus-small.svg");
         background-position: center center;
         background-repeat: no-repeat;
         content: "";

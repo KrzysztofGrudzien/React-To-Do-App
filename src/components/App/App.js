@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import Form from "../Form/Form";
+import Form from "../Form/AddTaskForm/Form";
 import ToDoList from "../ToDoList/ToDoList";
 import Navigation from "../Navigation/Navigation";
 import WelcomeBox from "../WelcomeBox/WelcomeBox";
@@ -42,6 +42,7 @@ const App = () => {
   const [comment, setComment] = useState("");
   const [client, setClient] = useState("our  company");
   const [project, setProject] = useState("project for us");
+  const [addProject, setAddProject] = useState([]);
 
   useEffect(() => {
     handleFilteredCategory();

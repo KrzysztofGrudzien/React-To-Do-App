@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.scss";
+import "./AddClientForm/AddClientForm.scss";
 import CONSTANT from "../../utils/constant";
 
 const SelectCategory = ({ setCategory }) => {

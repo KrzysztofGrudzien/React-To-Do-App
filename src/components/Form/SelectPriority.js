@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.scss";
+import "./AddTaskForm/Form.scss";
 import CONSTANT from "../../utils/constant";
 
 const SelectPriority = ({ setPriority }) => {
