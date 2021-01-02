@@ -2,14 +2,15 @@ import React from "react";
 import "./ToDoItem.scss";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import CONSTANT from "../../utils/constant";
 
 const Priority = styled.span`
   background-color: ${({ type }) =>
-    type === "high"
+    type === CONSTANT.PRIORITY.HIGH
       ? "#ff3e6a"
-      : type === "medium"
+      : type === CONSTANT.PRIORITY.MEDIUM
       ? "#ffac3e"
-      : type === "low"
+      : type === CONSTANT.PRIORITY.LOW
       ? "#24c770"
       : "#4c74f8"};
   color: #ffffff;

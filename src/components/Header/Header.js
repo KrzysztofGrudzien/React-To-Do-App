@@ -1,6 +1,7 @@
 import React from "react";
 import UserLoginInfo from "../UserLoginInfo/UserLoginInfo";
 import "./Header.scss";
+import CONSTANT from "../../utils/constant";
 
 const Header = ({ time, isActive, toDoLists, startTime, resetTime }) => {
   let updateMinutes, updateSeconds, updateHours;
@@ -26,7 +27,7 @@ const Header = ({ time, isActive, toDoLists, startTime, resetTime }) => {
             className={!isActive ? "app-timer-btn active" : "app-timer-btn"}
             disabled={toDoLists.length < 1 ? true : false}
           >
-            {isActive ? "start" : "pause"}
+            {isActive ? CONSTANT.TIMER.START : CONSTANT.TIMER.PAUSE}
           </button>
           <button
             onClick={resetTime}

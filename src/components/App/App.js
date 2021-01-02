@@ -17,6 +17,7 @@ import Tasks from "../../pages/Tasks/Tasks";
 import Clients from "../../pages/Clients/Clients";
 import Statistics from "../../pages/Statistics/Statistics";
 import LastSixTasks from "../LastSixTasks/LastSixTasks";
+import CONSTANT from "../../utils/constant";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
@@ -65,43 +66,49 @@ const App = () => {
   }
 
   const handleFilteredCategory = () => {
-    if (category === "development") {
+    if (category === CONSTANT.CATEGORY.DEVELOPMENT) {
       setFilteredToDoLists(
-        toDoLists.filter(toDo => toDo.category === "development")
+        toDoLists.filter(
+          toDo => toDo.category === CONSTANT.CATEGORY.DEVELOPMENT
+        )
       );
-    } else if (category === "webdesign") {
+    } else if (category === CONSTANT.CATEGORY.WEBDESIGN) {
       setFilteredToDoLists(
-        toDoLists.filter(toDo => toDo.category === "webdesign")
+        toDoLists.filter(toDo => toDo.category === CONSTANT.CATEGORY.WEBDESIGN)
       );
-    } else if (category === "english") {
+    } else if (category === CONSTANT.CATEGORY.ENGLISH) {
       setFilteredToDoLists(
-        toDoLists.filter(toDo => toDo.category === "english")
+        toDoLists.filter(toDo => toDo.category === CONSTANT.CATEGORY.ENGLISH)
       );
-    } else if (category === "vr") {
-      setFilteredToDoLists(toDoLists.filter(toDo => toDo.category === "vr"));
-    } else if (category === "marketing") {
+    } else if (category === CONSTANT.CATEGORY.VR) {
       setFilteredToDoLists(
-        toDoLists.filter(toDo => toDo.category === "marketing")
+        toDoLists.filter(toDo => toDo.category === CONSTANT.CATEGORY.VR)
       );
-    } else if (category === "home") {
-      setFilteredToDoLists(toDoLists.filter(toDo => toDo.category === "home"));
+    } else if (category === CONSTANT.CATEGORY.MARKETING) {
+      setFilteredToDoLists(
+        toDoLists.filter(toDo => toDo.category === CONSTANT.CATEGORY.MARKETING)
+      );
+    } else if (category === CONSTANT.CATEGORY.HOME) {
+      setFilteredToDoLists(
+        toDoLists.filter(toDo => toDo.category === CONSTANT.CATEGORY.HOME)
+      );
     } else {
       setFilteredToDoLists(toDoLists);
     }
   };
 
   const handleFilteredPriority = () => {
-    if (priority === "low") {
+    if (priority === CONSTANT.PRIORITY.LOW) {
       setFilteredToDoListsPriority(
-        toDoLists.filter(toDo => toDo.priority === "low")
+        toDoLists.filter(toDo => toDo.priority === CONSTANT.PRIORITY.LOW)
       );
-    } else if (priority === "medium") {
+    } else if (priority === CONSTANT.PRIORITY.MEDIUM) {
       setFilteredToDoListsPriority(
-        toDoLists.filter(toDo => toDo.priority === "medium")
+        toDoLists.filter(toDo => toDo.priority === CONSTANT.PRIORITY.MEDIUM)
       );
-    } else if (priority === "high") {
+    } else if (priority === CONSTANT.PRIORITY.HIGH) {
       setFilteredToDoListsPriority(
-        toDoLists.filter(toDo => toDo.priority === "high")
+        toDoLists.filter(toDo => toDo.priority === CONSTANT.PRIORITY.HIGH)
       );
     } else {
       setFilteredToDoListsPriority(toDoLists);
@@ -129,22 +136,22 @@ const App = () => {
       <WelcomeDataInfo toDoLists={toDoLists} />
       <main>
         <Switch>
-          <Route path="/" exact>
+          <Route path={CONSTANT.PATH.DEFAULT} exact>
             <div className="last-tasks-container">
               <WelcomeBox />
               <LastSixTasks toDoLists={toDoLists} />
             </div>
           </Route>
-          <Route path="/clients">
+          <Route path={CONSTANT.PATH.CLIENTS}>
             <Clients />
           </Route>
-          <Route path="/projects">
+          <Route path={CONSTANT.PATH.PROJECTS}>
             <Projects />
           </Route>
-          <Route path="/settings">
+          <Route path={CONSTANT.PATH.SETTINGS}>
             <Settings />
           </Route>
-          <Route path="/add-task">
+          <Route path={CONSTANT.PATH.ADD_TASK}>
             <div className="form-container">
               <Form
                 inputValue={inputValue}
@@ -177,7 +184,7 @@ const App = () => {
               />
             </div>
           </Route>
-          <Route path="/statistics">
+          <Route path={CONSTANT.PATH.STATISTICS}>
             <Statistics />
           </Route>
           <Route path="/tasks">
@@ -189,7 +196,7 @@ const App = () => {
                   setPriority={setPriority}
                   setCategory={setCategory}
                 />
-                {filter === "category" ? (
+                {filter === CONSTANT.FILTER.CATEGORY ? (
                   <SelectCategory
                     setCategory={setCategory}
                     category={category}

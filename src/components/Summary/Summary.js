@@ -3,10 +3,11 @@ import "./Summary.scss";
 import countTasks from "../../utils/countTasks.js";
 import countPercentOfTasks from "../../utils/countPercentOfTasks.js";
 import PropTypes from "prop-types";
+import CONSTANT from "../../utils/constant";
 
 const Summary = ({ toDoLists }) => {
-  const completed = countTasks("completed", toDoLists);
-  const tasks = countTasks("all", toDoLists);
+  const completed = countTasks(CONSTANT.TASK.COMPLETED, toDoLists);
+  const tasks = countTasks(CONSTANT.TASK.All, toDoLists);
   const percent = countPercentOfTasks(completed, tasks);
 
   return (
@@ -28,18 +29,20 @@ const Summary = ({ toDoLists }) => {
           <li className="summary-list-item">
             <div className="summary-cases-title">Completed Tasks</div>
             <div className="summary-amount">
-              {countTasks("completed", toDoLists)}
+              {countTasks(CONSTANT.TASK.COMPLETED, toDoLists)}
             </div>
           </li>
           <li className="summary-list-item">
             <div className="summary-cases-title">To Do Tasks</div>
             <div className="summary-amount">
-              {countTasks("uncompleted", toDoLists)}
+              {countTasks(CONSTANT.TASK.UNCOMPLETED, toDoLists)}
             </div>
           </li>
           <li className="summary-list-item">
             <div className="summary-cases-title">All Tasks</div>
-            <div className="summary-amount">{countTasks("all", toDoLists)}</div>
+            <div className="summary-amount">
+              {countTasks(CONSTANT.TASK.All, toDoLists)}
+            </div>
           </li>
         </ul>
       </div>

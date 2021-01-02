@@ -1,5 +1,6 @@
 import React from "react";
 import "./Form.scss";
+import CONSTANT from "../../utils/constant";
 
 const SelectPriority = ({ setPriority }) => {
   const handleOnChangeSelectPriorityType = e => {
@@ -7,10 +8,10 @@ const SelectPriority = ({ setPriority }) => {
   };
   return (
     <select className="todo-select" onChange={handleOnChangeSelectPriorityType}>
-      <option value="all">All Prorities</option>
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
+      <option value={CONSTANT.PRIORITY.ALL}>All Prorities</option>
+      <option value={CONSTANT.PRIORITY.LOW}>Low</option>
+      <option value={CONSTANT.PRIORITY.MEDIUM}>Medium</option>
+      <option value={CONSTANT.PRIORITY.HIGH}>High</option>
     </select>
   );
 };

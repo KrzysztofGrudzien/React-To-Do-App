@@ -7,6 +7,7 @@ import ImgAvatarBill from "../../assets/images/kill-bill.jpg";
 import ImgAvatarLecter from "../../assets/images/hannibal.jpg";
 import ImgAvatarLeon from "../../assets/images/leon.jpg";
 import ImgAvatarWick from "../../assets/images/johnny-wick.jpg";
+import CONSTANT from "../../utils/constant";
 
 const LastSixTasks = ({ toDoLists }) => {
   return (
@@ -26,26 +27,26 @@ const LastSixTasks = ({ toDoLists }) => {
                 <div className="last-task-author">
                   <span
                     className={`last-task-notification-sign ${
-                      toDo.priority === "high"
+                      toDo.priority === CONSTANT.PRIORITY.HIGH
                         ? "last-task-notification-sign-red"
-                        : toDo.priority === "medium"
+                        : toDo.priority === CONSTANT.PRIORITY.MEDIUM
                         ? "last-task-notification-sign-orange"
-                        : toDo.priority === "low"
+                        : toDo.priority === CONSTANT.PRIORITY.LOW
                         ? "last-task-notification-sign-green"
                         : ""
                     } `}
                   />
                   <img
                     src={
-                      toDo.author === "John Rambo"
+                      toDo.author === CONSTANT.AUTHOR.RAMBO
                         ? ImgAvatarRambo
-                        : toDo.author === "Hannibal Lecter"
+                        : toDo.author === CONSTANT.AUTHOR.HANNIBAL
                         ? ImgAvatarLecter
-                        : toDo.author === "Kill Bill"
+                        : toDo.author === CONSTANT.AUTHOR.BILL
                         ? ImgAvatarBill
-                        : toDo.author === "John Wick"
+                        : toDo.author === CONSTANT.AUTHOR.WICK
                         ? ImgAvatarWick
-                        : toDo.author === "Leon"
+                        : toDo.author === CONSTANT.AUTHOR.LEON
                         ? ImgAvatarLeon
                         : ImgAvatar
                     }

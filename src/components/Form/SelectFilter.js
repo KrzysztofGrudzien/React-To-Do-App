@@ -1,16 +1,17 @@
 import React from "react";
 import "./Form.scss";
+import CONSTANT from "../../utils/constant";
 
 const SelectFilter = ({ setFilter, setCategory, setPriority }) => {
   const handleOnChangeSelectFilter = e => {
     setFilter(e.target.value);
-    setCategory("all");
-    setPriority("all");
+    setCategory(CONSTANT.CATEGORY.ALL);
+    setPriority(CONSTANT.PRIORITY.ALL);
   };
   return (
     <select className="todo-select" onChange={handleOnChangeSelectFilter}>
-      <option value="category">Category</option>
-      <option value="priority">Priority</option>
+      <option value={CONSTANT.FILTER.CATEGORY}>Category</option>
+      <option value={CONSTANT.FILTER.PRIORITY}>Priority</option>
     </select>
   );
 };
