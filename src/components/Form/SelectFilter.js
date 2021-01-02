@@ -1,5 +1,5 @@
 import React from "react";
-import "./AddClientForm/AddClientForm.scss";
+import "./AddTaskForm/AddTaskForm.scss";
 import CONSTANT from "../../utils/constant";
 
 const SelectFilter = ({ setFilter, setCategory, setPriority }) => {
