@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import Form from "../Form/AddTaskForm/Form";
+import Form from "../Form/AddTaskForm/AddTaskForm";
 import ToDoList from "../ToDoList/ToDoList";
 import Navigation from "../Navigation/Navigation";
 import WelcomeBox from "../WelcomeBox/WelcomeBox";
@@ -43,6 +43,9 @@ const App = () => {
   const [client, setClient] = useState("our  company");
   const [project, setProject] = useState("project for us");
   const [addProject, setAddProject] = useState([]);
+  const [addProjectTitle, setAddProjectTitle] = useState("");
+  const [addProjectBudget, setAddProjectBudget] = useState(0);
+  const [addProjectDescription, setAddProjectDescription] = useState("");
 
   useEffect(() => {
     handleFilteredCategory();
@@ -147,7 +150,16 @@ const App = () => {
             <Clients />
           </Route>
           <Route path={CONSTANT.PATH.PROJECTS}>
-            <Projects />
+            <Projects
+              addProjectTitle={addProjectTitle}
+              setAddProjectTitle={setAddProjectTitle}
+              addProjectDescription={addProjectDescription}
+              setAddProjectDescription={setAddProjectDescription}
+              addProjectBudget={addProjectBudget}
+              setAddProjectBudget={setAddProjectBudget}
+              addProject={addProject}
+              setAddProject={setAddProject}
+            />
           </Route>
           <Route path={CONSTANT.PATH.SETTINGS}>
             <Settings />
