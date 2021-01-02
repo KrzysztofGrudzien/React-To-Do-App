@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.scss";
+import "./AddTaskForm.scss";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 import FullStackImg from "../../../assets/images/johnny-wick.jpg";
