@@ -39,7 +39,10 @@ const Form = ({
   client,
   setClient,
   project,
-  setProject
+  setProject,
+  addProject,
+  addProjectTitle,
+  setAddProjectTitle
 }) => {
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
@@ -63,7 +66,13 @@ const Form = ({
         author: author,
         comment: comment,
         client: client,
-        project: project
+        project: addProjectTitle,
+        subtasks: {
+          item1: "task 1",
+          item2: "task 2",
+          item3: "task 3",
+          item4: "task 4"
+        }
       }
     ]);
     setInputValue("");
@@ -129,7 +138,7 @@ const Form = ({
   };
 
   const handleOnChangeSelectProject = e => {
-    setProject(e.target.value);
+    setAddProjectTitle(e.target.value);
   };
 
   return (
@@ -320,22 +329,27 @@ const Form = ({
             className="todo-select todo-select-additional"
             onChange={handleOnChangeSelectProject}
           >
-            <option value="Landing page based on Gatsby for Client 1">
-              Landing page based on Gatsby for Client 1
-            </option>
-            <option value="Mortgae calulator based on Node.js and MongoDB for Client 3">
-              Mortgae calulator based on Node.js and MongoDB for Client 3
-            </option>
-            <option value="Branding Campange for Company 5">
-              Branding Campange for Company 5
-            </option>
-            <option value="SPA - for our company">SPA - for our compan</option>
-            <option value="Graphic layout for Company 4">
-              Graphic layout for Company 4"
-            </option>
-            <option value="Experimental Three.js Website">
-              Experimental Three.js Website
-            </option>
+            {addProject.map(project => (
+              <option value={project.title} key={project.id}>
+                {project.title}
+              </option>
+            ))}
+            {/* <option value="Landing page based on Gatsby for Client 1"> */}
+            {/* Landing page based on Gatsby for Client 1 */}
+            {/* </option> */}
+            {/* <option value="Mortgae calulator based on Node.js and MongoDB for Client 3"> */}
+            {/* Mortgae calulator based on Node.js and MongoDB for Client 3 */}
+            {/* </option> */}
+            {/* <option value="Branding Campange for Company 5"> */}
+            {/* Branding Campange for Company 5 */}
+            {/* </option> */}
+            {/* <option value="SPA - for our company">SPA - for our compan</option> */}
+            {/* <option value="Graphic layout for Company 4"> */}
+            {/* Graphic layout for Company 4" */}
+            {/* </option> */}
+            {/* <option value="Experimental Three.js Website"> */}
+            {/* Experimental Three.js Website */}
+            {/* </option> */}
           </select>
         </div>
       </div>

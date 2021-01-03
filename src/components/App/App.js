@@ -194,6 +194,9 @@ const App = () => {
                 setProject={setProject}
                 client={client}
                 setClient={setClient}
+                addProject={addProject}
+                addProjectTitle={addProjectTitle}
+                setAddProjectTitle={setAddProjectTitle}
               />
             </div>
           </Route>
@@ -233,6 +236,7 @@ const App = () => {
                   comment={comment}
                   project={project}
                   client={client}
+                  addProjectTitle={addProjectTitle}
                 />
               ) : (
                 <h2 className="info">
