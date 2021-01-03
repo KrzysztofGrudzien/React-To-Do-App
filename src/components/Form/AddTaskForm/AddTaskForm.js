@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddTaskForm.scss";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
@@ -7,10 +7,6 @@ import FrontendOneImg from "../../../assets/images/leon.jpg";
 import BackendImg from "../../../assets/images/rambo.png";
 import FrontendTwoImg from "../../../assets/images/kill-bill.jpg";
 import DesignerImg from "../../../assets/images/hannibal.jpg";
-// import CheckedIcon from "../../assets/icons/checkbox-checked-blue.svg";
-// import UnCheckedIcon from "../../assets/icons/checkbox-unchecked.svg";
-// import BinIcon from "../../assets/icons/bin-blue.svg";
-// import TickIcon from "../../assets/icons/tick-green.svg";
 
 const Form = ({
   setInputValue,
@@ -38,12 +34,14 @@ const Form = ({
   setComment,
   client,
   setClient,
-  project,
-  setProject,
   addProject,
   addProjectTitle,
   setAddProjectTitle
 }) => {
+  const [subtasks, setSubtasks] = useState([]);
+  const [subtask, setSubtask] = useState("");
+  const [isOpenAddSubtaskModal, setIsOpenAddSubtaskModal] = useState(false);
+
   const handleOnChangeInputValue = e => {
     setInputValue(e.target.value);
   };
@@ -67,12 +65,7 @@ const Form = ({
         comment: comment,
         client: client,
         project: addProjectTitle,
-        subtasks: {
-          item1: "task 1",
-          item2: "task 2",
-          item3: "task 3",
-          item4: "task 4"
-        }
+        subtasks: subtasks
       }
     ]);
     setInputValue("");
@@ -81,6 +74,26 @@ const Form = ({
     setHours(0);
     setMinutes(0);
     setSeconds(0);
+  };
+
+  const handleOnClickAddSubtask = e => {
+    e.preventDefault();
+    setSubtasks([
+      ...subtasks,
+      {
+        title: subtask,
+        id: uuidv4()
+      }
+    ]);
+  };
+
+  const handleIsOpenAddSubtaskModal = e => {
+    e.preventDefault();
+    setIsOpenAddSubtaskModal(prevState => !prevState);
+  };
+
+  const handleOnChangeSubtask = e => {
+    setSubtask(e.target.value);
   };
 
   const handleOnChangeSelectCategory = e => {
@@ -143,56 +156,29 @@ const Form = ({
 
   return (
     <form className="todo-form">
-      {/* <div className="todo-subtasks-wrapper"> 
-        <button className="todo-subtask-close" />
-        <div className="todo-subtask-wrapper">
-          <input
-            type="text"
-            placeholder="Enter subtask"
-            className="todo-input-subtask"
+      {isOpenAddSubtaskModal ? (
+        <div className="todo-subtasks-wrapper">
+          <button
+            className="todo-subtask-close"
+            onClick={handleIsOpenAddSubtaskModal}
           />
-          <button className="todo-subtask-add" />
+          <div className="todo-subtask-wrapper">
+            <input
+              type="text"
+              placeholder="Enter subtask"
+              className="todo-input-subtask"
+              onChange={handleOnChangeSubtask}
+            />
+            <button
+              className="todo-subtask-add"
+              onClick={handleOnClickAddSubtask}
+            />
+          </div>
         </div>
-        <ul className="todo-subtask-list">
-          <li className="todo-subtask-item">
-            <img src={CheckedIcon} alt="checked icon" />
-            lorem ipsum dolor sit amet, lorem ipsum appour luctus
-            <div>
-              <img src={TickIcon} alt="tick icon" />
-              <img src={BinIcon} alt="trash icon" />
-            </div>
-          </li>
-          <li className="todo-subtask-item">
-            <img src={UnCheckedIcon} alt="checked icon" />
-            lorem ipsum dolor sit amet, lorem ipsum appour luctus
-            <div>
-              <img src={TickIcon} alt="tick icon" />
-              <img src={BinIcon} alt="trash icon" />
-            </div>
-          </li>
-          <li className="todo-subtask-item">
-            <img src={UnCheckedIcon} alt="checked icon" />
-            lorem ipsum dolor sit amet, lorem ipsum appour luctus
-            <div>
-              <img src={TickIcon} alt="tick icon" />
-              <img src={BinIcon} alt="trash icon" />
-            </div>
-          </li>
-        </ul>
-      </div>
-      */}
+      ) : null}
       <h2 className="todo-form-title">
         TASK <b>TO DO</b>
       </h2>
-      {/*
-      <p
-        className={`todo-info-validation  ${
-          inputValue.length < 10 || inputValue.length > 100 ? "" : "done"
-        }`}
-      >
-        The title must has at least 10 characters but no more than 100
-      </p>
-      */}
       <div className="todo-form-wrapper">
         <input
           type="text"
@@ -208,7 +194,10 @@ const Form = ({
             placeholder="click and add additional tasks"
             disabled
           />
-          <button className="todo-additional-task-add" />
+          <button
+            className="todo-additional-task-add"
+            onClick={handleIsOpenAddSubtaskModal}
+          />
         </div>
       </div>
       <div className="todo-textarea-wrapper">
@@ -334,22 +323,6 @@ const Form = ({
                 {project.title}
               </option>
             ))}
-            {/* <option value="Landing page based on Gatsby for Client 1"> */}
-            {/* Landing page based on Gatsby for Client 1 */}
-            {/* </option> */}
-            {/* <option value="Mortgae calulator based on Node.js and MongoDB for Client 3"> */}
-            {/* Mortgae calulator based on Node.js and MongoDB for Client 3 */}
-            {/* </option> */}
-            {/* <option value="Branding Campange for Company 5"> */}
-            {/* Branding Campange for Company 5 */}
-            {/* </option> */}
-            {/* <option value="SPA - for our company">SPA - for our compan</option> */}
-            {/* <option value="Graphic layout for Company 4"> */}
-            {/* Graphic layout for Company 4" */}
-            {/* </option> */}
-            {/* <option value="Experimental Three.js Website"> */}
-            {/* Experimental Three.js Website */}
-            {/* </option> */}
           </select>
         </div>
       </div>
