@@ -39,7 +39,8 @@ const ToDoItem = ({
   author,
   comment,
   project,
-  client
+  client,
+  subtasks
 }) => {
   const handleOnClickDeleteTask = () => {
     setToDoLists(toDoLists.filter(toDoItem => toDoItem.id !== id));
@@ -140,13 +141,9 @@ const ToDoItem = ({
         </div>
         <div className="todo-item-subtasks todo-item-subtasks-list">
           <ul className={`${toDo.completed ? "done" : ""}`}>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-            <li>item 4</li>
-            <li>item 5</li>
-            <li>item 6</li>
-            <li>item 7</li>
+            {subtasks.map(subtask => (
+              <li>{subtask.title}</li>
+            ))}
           </ul>
         </div>
       </div>

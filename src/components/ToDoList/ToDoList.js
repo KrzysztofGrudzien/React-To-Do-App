@@ -84,6 +84,7 @@ const ToDoList = ({
             comment={toDoList.comment}
             client={toDoList.client}
             project={toDoList.project}
+            subtasks={toDoList.subtasks}
           />
         ))}
       </ul>
