@@ -130,7 +130,7 @@
   .todo-subtasks-wrapper {
     background-color: rgba(255, 255, 255, 0.963);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
-    height: 80vh;
+    min-height: 200px;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
@@ -148,19 +148,19 @@
         border: none;
         border-bottom: 1px solid $color-grey-500;
         font-size: 1.6rem;
-        height: 60px;
+        height: 50px;
         padding-left: 20px;
         width: 80%;
         outline: none;
       }
 
-      &-add {
+      .todo-subtask-add {
         background-image: url("../../../assets/icons/plus-small.svg");
         background-position: center center;
         background-repeat: no-repeat;
-        height: 60px;
+        height: 50px;
         padding: 10px;
-        width: 60px;
+        width: 50px;
       }
     }
 
