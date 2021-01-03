@@ -58,7 +58,7 @@ const LastSixTasks = ({ toDoLists }) => {
                 <div className="last-task-info">
                   <span className="last-task-info-date">{toDo.date}</span>
                   <span className="last-task-info-subtasks">
-                    Subtasks - 3/5
+                    Subtasks - {toDo.subtasks.length}
                   </span>
                 </div>
               </div>
