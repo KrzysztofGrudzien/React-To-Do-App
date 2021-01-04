@@ -9,7 +9,11 @@ const Projects = ({
   addProjectBudget,
   setAddProjectBudget,
   addProject,
-  setAddProject
+  setAddProject,
+  addProjectDate,
+  setAddProjectDate,
+  addProjectClient,
+  setAddProjectClient
 }) => {
   return (
     <>
@@ -22,6 +26,10 @@ const Projects = ({
         setAddProjectBudget={setAddProjectBudget}
         addProject={addProject}
         setAddProject={setAddProject}
+        addProjectDate={addProjectDate}
+        setAddProjectDate={setAddProjectDate}
+        addProjectClient={addProjectClient}
+        setAddProjectClient={setAddProjectClient}
       />
     </>
   );

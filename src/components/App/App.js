@@ -40,12 +40,14 @@ const App = () => {
   const [filter, setFilter] = useState("category");
   const [author, setAuthor] = useState("admin");
   const [comment, setComment] = useState("");
-  const [client, setClient] = useState("our  company");
+  const [client, setClient] = useState("our company");
   const [project, setProject] = useState("project for us");
   const [addProject, setAddProject] = useState([]);
   const [addProjectTitle, setAddProjectTitle] = useState("");
   const [addProjectBudget, setAddProjectBudget] = useState(0);
   const [addProjectDescription, setAddProjectDescription] = useState("");
+  const [addProjectDate, setAddProjectDate] = useState("");
+  const [addProjectClient, setAddProjectClient] = useState("");
 
   useEffect(() => {
     handleFilteredCategory();
@@ -159,6 +161,10 @@ const App = () => {
               setAddProjectBudget={setAddProjectBudget}
               addProject={addProject}
               setAddProject={setAddProject}
+              addProjectClient={addProjectClient}
+              setAddProjectClient={setAddProjectClient}
+              addProjectDate={addProjectDate}
+              setAddProjectDate={setAddProjectDate}
             />
           </Route>
           <Route path={CONSTANT.PATH.SETTINGS}>

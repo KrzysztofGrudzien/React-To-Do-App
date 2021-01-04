@@ -10,7 +10,11 @@ const AddProjectForm = ({
   addProjectBudget,
   setAddProjectBudget,
   addProject,
-  setAddProject
+  setAddProject,
+  addProjectDate,
+  setAddProjectDate,
+  addProjectClient,
+  setAddProjectClient
 }) => {
   const handleOnClickAddProject = e => {
     e.preventDefault();
@@ -20,9 +24,12 @@ const AddProjectForm = ({
         title: addProjectTitle,
         description: addProjectDescription,
         budget: addProjectBudget,
-        id: uuidv4()
+        id: uuidv4(),
+        date: addProjectDate,
+        client: addProjectClient
       }
     ]);
+    setAddProjectDate("");
     setAddProjectBudget(0);
     setAddProjectTitle("");
     setAddProjectDescription("");
@@ -38,6 +45,14 @@ const AddProjectForm = ({
 
   const handleOnChangeProjectDescription = e => {
     setAddProjectDescription(e.target.value);
+  };
+
+  const handleOnChangeProjectDate = e => {
+    setAddProjectDate(e.target.value);
+  };
+
+  const handleOnChangeProjectClient = e => {
+    setAddProjectClient(e.target.value);
   };
 
   return (
@@ -81,7 +96,11 @@ const AddProjectForm = ({
             </div>
             <div className="project-input-wrapper">
               <h3 className="project-input-title">CLIENT</h3>
-              <select type="select" className="client-input">
+              <select
+                type="select"
+                className="client-input"
+                onChange={handleOnChangeProjectClient}
+              >
                 <option value="Client 1">Client 1</option>
                 <option value="Client 1">Client 2</option>
                 <option value="Client 1">Client 3</option>
@@ -90,7 +109,11 @@ const AddProjectForm = ({
               </select>
               <div className="project-input-data">
                 <h3 className="project-input-title">DEADLINE</h3>
-                <input type="date" className="project-input" />
+                <input
+                  type="date"
+                  className="project-input"
+                  onChange={handleOnChangeProjectDate}
+                />
                 <button onClick={handleOnClickAddProject}>Add project</button>
               </div>
             </div>
@@ -102,7 +125,7 @@ const AddProjectForm = ({
       </h2>
       <ul className="projects-list">
         <li className="projects-list-title">
-          <div className="projects-list-title-item">ID</div>
+          <div className="projects-list-title-item">Nr</div>
           <div className="projects-list-title-item">Name of project</div>
           <div className="projects-list-title-item">Details</div>
         </li>
