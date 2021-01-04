@@ -7,6 +7,7 @@ import FrontendOneImg from "../../../assets/images/leon.jpg";
 import BackendImg from "../../../assets/images/rambo.png";
 import FrontendTwoImg from "../../../assets/images/kill-bill.jpg";
 import DesignerImg from "../../../assets/images/hannibal.jpg";
+import CONSTANT from "../../../utils/constant";
 
 const Form = ({
   setInputValue,
@@ -128,22 +129,8 @@ const Form = ({
     setComment(e.target.value);
   };
 
-  const handleOnClickChooseWick = () => {
-    setAuthor("John Wick");
-  };
-
-  const handleOnClickChooseLecter = () => {
-    setAuthor("Hannibal Lecter");
-  };
-
-  const handleOnClickChooseRambo = () => {
-    setAuthor("John Rambo");
-  };
-  const handleOnClickChooseBill = () => {
-    setAuthor("Kill Bill");
-  };
-  const handleOnClickChooseLeon = () => {
-    setAuthor("Leon");
+  const handleOnClickChooseAuthor = name => {
+    setAuthor(name);
   };
 
   const handleOnChangeSelectClient = e => {
@@ -418,7 +405,10 @@ const Form = ({
       </div>
       <div className="todo-team">
         <h2 className="todo-team-title">FOR WHO THIS TASK?</h2>
-        <div className="todo-team-member" onClick={handleOnClickChooseWick}>
+        <div
+          className="todo-team-member"
+          onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.WICK)}
+        >
           <img
             src={FullStackImg}
             alt=""
@@ -428,7 +418,10 @@ const Form = ({
           <p className="todo-team-member-name">John Wick</p>
           <p className="todo-team-member-position">FullStack Developer</p>
         </div>
-        <div className="todo-team-member" onClick={handleOnClickChooseLecter}>
+        <div
+          className="todo-team-member"
+          onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.HANNIBAL)}
+        >
           <img
             src={DesignerImg}
             alt=""
@@ -438,7 +431,10 @@ const Form = ({
           <p className="todo-team-member-name">Hanibal Lecter</p>
           <p className="todo-team-member-position">UX/UI Designer</p>
         </div>
-        <div className="todo-team-member" onClick={handleOnClickChooseRambo}>
+        <div
+          className="todo-team-member"
+          onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.RAMBO)}
+        >
           <img
             src={BackendImg}
             alt=""
@@ -448,7 +444,10 @@ const Form = ({
           <p className="todo-team-member-name">John Rambo</p>
           <p className="todo-team-member-position">Backend Developer</p>
         </div>
-        <div className="todo-team-member" onClick={handleOnClickChooseLeon}>
+        <div
+          className="todo-team-member"
+          onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.LEON)}
+        >
           <img
             src={FrontendOneImg}
             alt=""
@@ -458,7 +457,10 @@ const Form = ({
           <p className="todo-team-member-name">Leon</p>
           <p className="todo-team-member-position">Frontend Developer</p>
         </div>
-        <div className="todo-team-member" onClick={handleOnClickChooseBill}>
+        <div
+          className="todo-team-member"
+          onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.BILL)}
+        >
           <img
             src={FrontendTwoImg}
             alt=""
