@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import "./AddTaskForm.scss";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
-import FullStackImg from "../../../assets/images/johnny-wick.jpg";
-import FrontendOneImg from "../../../assets/images/leon.jpg";
-import BackendImg from "../../../assets/images/rambo.png";
-import FrontendTwoImg from "../../../assets/images/kill-bill.jpg";
-import DesignerImg from "../../../assets/images/hannibal.jpg";
 import CONSTANT from "../../../utils/constant";
 
 const Form = ({
@@ -410,7 +405,7 @@ const Form = ({
           onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.WICK)}
         >
           <img
-            src={FullStackImg}
+            src={CONSTANT.AUTHOR_IMG.WICK}
             alt=""
             className="todo-team-member-img responsive"
             alt="fullstack developer"
@@ -423,7 +418,7 @@ const Form = ({
           onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.HANNIBAL)}
         >
           <img
-            src={DesignerImg}
+            src={CONSTANT.AUTHOR_IMG.HANNIBAL}
             alt=""
             className="todo-team-member-img responsive"
             alt="designer developer"
@@ -436,7 +431,7 @@ const Form = ({
           onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.RAMBO)}
         >
           <img
-            src={BackendImg}
+            src={CONSTANT.AUTHOR_IMG.RAMBO}
             alt=""
             className="todo-team-member-img responsive"
             alt="backend developer"
@@ -449,7 +444,7 @@ const Form = ({
           onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.LEON)}
         >
           <img
-            src={FrontendOneImg}
+            src={CONSTANT.AUTHOR_IMG.LEON}
             alt=""
             className="todo-team-member-img responsive"
             alt="frontend developer"
@@ -462,7 +457,7 @@ const Form = ({
           onClick={() => handleOnClickChooseAuthor(CONSTANT.AUTHOR.BILL)}
         >
           <img
-            src={FrontendTwoImg}
+            src={CONSTANT.AUTHOR_IMG.BILL}
             alt=""
             className="todo-team-member-img responsive"
             alt="frontend developer"

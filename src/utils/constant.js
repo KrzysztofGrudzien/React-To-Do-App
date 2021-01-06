@@ -1,3 +1,9 @@
+import johnRamboImg from "../assets/images/rambo.png";
+import johnyWickImg from "../assets/images/johnny-wick.jpg";
+import killBillImg from "../assets/images/kill-bill.jpg";
+import hannibalLecterImg from "../assets/images/hannibal.jpg";
+import leonImg from "../assets/images/leon.jpg";
+
 const CONSTANT = {
   PRIORITY: {
     LOW: "low",
@@ -33,6 +39,14 @@ const CONSTANT = {
     BILL: "Kill Bill",
     WICK: "John Wick",
     LEON: "Leon"
+  },
+
+  AUTHOR_IMG: {
+    RAMBO: johnRamboImg,
+    HANNIBAL: hannibalLecterImg,
+    BILL: killBillImg,
+    WICK: johnyWickImg,
+    LEON: leonImg
   },
 
   TIMER: {
